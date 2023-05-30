@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+
+
+$white: white;
+$green: #7dbf4a;
+$green-dark: #253303;
+$grey: #F1F1F1;
+$black:black;
+$blue: #6a70a1;
+$blue-clear: #3b5998;
+$grey-dark: #6F6F6F;
+$grey-light: #F6F6F6;
+$border: rgb(235, 223, 223);
+$red: #cb2027;
+
+
+html, body{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 1.7em;
+    text-align: justify;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    background-color: $grey;
+}
+
+@mixin flex($flex-direction: row){
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    line-height: 1em;
+}
+
+@mixin btn($color: $white, $bg: $blue, $bc: $blue){
+    color: $white;
+    background-color: $bg;
+    border: 1px solid;
+    border-color: $bc;
+    cursor: pointer;
+    width: max-content;
+}
+
+@mixin share-btn(){
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: table;
+    margin: 5px;
+}
+/*
+@keyframes card {
+    0% {
+      transform: scaleX(1.0);
+    }
+
+    30% {
+      }
+
+    100% {
+        transform: scaleX(1.1);
+    }
+    }
+*/
+
+h1{
+    display: inline;
+    position: relative;
+}
+h1 span{
+    font-size: 0.7em;
+    top: 11px;
+    position: absolute;
+}
+
+h2, h3{
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    color: $grey-dark;
+    font-weight: bold;
+}
+
+i{
+    color: $blue;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.close{
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+
+    i{
+        font-size: 2em;
+        text-align: center;
+        cursor: pointer;
+        color: $blue;
+    }
+
+    i:hover{
+        color: $green;
+    }
+}
+
+
+.text-center{
+    margin: auto;
+}
+
+.text-grey{
+    color: grey
+}
+
+.text-blue{
+    color: $blue-clear;
+}
+
+.fw-bold{
+    font-weight: bold;
+    margin: 15px auto;
+}
+
+.location{
+    margin: 10px auto;
+    i{
+        font-size: 1.1em;
+        color: $blue;
+    }
+}
+
+.share-btn i{
+        font-size: 1.5em;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: $white;
+    }
+
+
+.required{
+    color: red;
+    font-weight: bold;
+}
+
+.table{
+	width: 100%;
+	border-collapse: collapse;
+	margin: auto 0;
+	font-family: sans-serif;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: center;
+  font-size:16px;
+}
+
+.table th{
+	background-color: $blue;
+	color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+}
+
+.table td i{
+    color: $grey-dark;
+}
+
+
+.table td i:hover{
+    color: $blue;
+}
+
+/*responsive*/
+@media(max-width: 500px){
+    .table{
+        width: 100%;
+        display: none;
+    }
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+
+
+    .table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+}
+
+
+.about{
+    img{
+        width: 95%;
+        height: auto;
+        border-radius: 5px;
+        margin: 50px auto;
+    }
+
+    &__text{
+        .buttons{
+            .btn{
+                margin: 5px;
+            }
+        }
+    }
+}
+
+.about-img{
+    width: 350px;
+    margin: auto;
+    height: auto;
+    border-radius: 5px;
+}
+.dashboard{
+    &__menu{
+        .menu{
+            width: 100%;
+            background-color: $grey-dark;
+            height: 75vh;
+            min-height: 75vh;
+            overflow: hidden;
+            text-align: center;
+            @include flex(column);
+            justify-content: start;
+            color: $white;
+
+            &__items{
+                display: block;
+
+                &__item{
+                    margin: 10px auto;
+                }
+
+                .activee{
+                    background-color: $green;
+                }
+
+            }
+
+        }
+
+        .mobile-menu{
+            display: none;
+        }
+    }
+
+    &__content{
+        display: block;
+        .buttons{
+            .btn{
+                margin: 5px;
+            }
+        }
+    }
+}
+
+.btn{
+   @include btn();
+}
+
+.btn-link{
+    width: 200px;
+    text-decoration: none;
+}
+
+.btn-link:hover{
+    background-color: $green;
+    border: 1px solid $green;
+    color: $white;
+}
+
+.btn-grey{
+   @include btn();
+}
+
+.btn-white{
+    @include btn($white, $blue, $blue);
+}
+
+
+.btn-grey:hover{
+    background-color: $blue;
+    color: $white;
+}
+
+.table-img{
+    width: 90px;
+    height: 50px;
+    margin: auto;
+}
+
+.show,
+.close{
+    display: none;
+}
+
+.action{}
+
+.btn-primary{
+   @include btn();
+
+   a{
+    color: $white;
+   }
+}
+
+.btn-primary:hover{
+    background-color: $green;
+    border-color: $green;
+    a{
+        color: $white;
+    }
+}
+
+a{
+    color: $black;
+    text-decoration: none;
+}
+
+a:hover{
+color: $blue;
+text-decoration: none;
+font-weight: bold;
+}
+
+.red{
+    color: red;
+    font-weight: bold;
+}
+
+li{
+    list-style: none;
+}
+
+.btn:hover{
+}
+
+span{
+    color: $blue;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.up{
+    background-color: $blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+
+    i{
+        color: $white;
+        font-size: bold;
+    }
+}
+
+.up:hover{
+    background-color: $green;
+}
+
+.slider-img{
+    height: 400px;
+    margin: auto;
+    width: 80%;
+}
+
+.main{
+    display: block;
+
+        .content{
+            display: block;
+            width: 100%;
+
+            .section{
+                width: 100%;
+                margin: 15px auto;
+
+            .container{
+                   .search{
+                    width: 70%;
+                    height: 45px;
+                    @include flex();
+                    justify-content: baseline;
+                    margin: 5px auto;
+
+                        .search__item{
+                            flex: 1;
+                            margin: 0;
+                            label{
+                                flex: 1;
+                                height: 100%;
+
+                                select{
+                                    height: 100%;
+                                    width: 100%;
+                                }
+
+                                button{
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: $green;
+                                    color: $white;
+                                    border: none;
+                                }
+
+                                button:hover{
+                                    background-color: $green-dark;
+                                }
+                            }
+                        }
+
+                   }
+
+                .hero{
+                    height: 60vh;
+                    min-height: 400px;
+                    margin: 0 auto;
+                    display: block;
+                    background-image:  linear-gradient(to bottom, rgba(55, 160, 226, 0.52), rgba(121, 165, 144, 0.73)),
+                    url('/img/bureau2.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    width: 100%;
+                    padding-top: 50px;
+
+
+                    &__content{
+                        width: 80%;
+                        margin: auto;
+                        height: 100%;
+                        padding-top: 50px;
+                        text-align: center;
+
+                        h1{
+                            font-size: 3em;
+                            color: $white;
+                            font-family: 'Source Sans Pro', sans-serif;
+                        }
+
+                        p{
+                            margin: 20px auto;
+                            font-size: 1.2em;
+                            font-weight: 900;
+                        }
+
+                    }
+                }
+
+                .row{
+                    .tags{
+                        background-color: $white;
+                        border: 1px $border solid;
+                        margin-bottom: 15px;
+
+
+                        &__heading{
+                            background-color: $grey-light;
+                            width: 100%;
+                            height: 50px;
+                            display: table;
+
+                            .span{
+                                margin: auto;
+                                color: $grey-dark;
+                                font-size: 1.3em;
+                                font-weight: 600;
+                                display: table-cell;
+                                vertical-align: middle;
+                                text-align: center;
+                            }
+                        }
+
+                        .iframe{
+                            width: 200px;
+                            height: 200px;
+                            text-align: center;
+                            margin: auto;
+
+                            iframe{
+                                width: 195px;
+                                height:195px;
+                                margin: auto;
+                            }
+                        }
+                    }
+
+                .list{
+                        background-color: $white;
+
+                        &__heading{
+                            background-color: $grey-light;
+                            height: 50px;
+
+                            .span{
+                                margin: auto;
+                                color: $grey-dark;
+                                font-size: 1.3em;
+                                font-weight: 800;
+
+                            }
+                        }
+
+                        .box{
+                            @include flex();
+                            margin: 20px auto;
+                            border: none;
+
+                            &__img{
+                                overflow: hidden;
+                                img{
+                                    width: 275px;
+                                    height: 180px;
+                                }
+
+                                p{
+                                    margin: 15px auto;
+                                    font-style: italic;
+
+                                span{
+                                    color: $grey;
+                                }
+                                }
+                            }
+
+                            &__infos{
+                            @include flex(column);
+                                flex: 1;
+                                text-align: left;
+                                margin-left: 10px;
+
+                                h2{
+                                    text-align: left;
+                                    font-size: 1.8em;
+                                    color: $blue;
+                                }
+
+                                    span{
+                                        color: $grey;
+                                        font-size: 1em;
+                                    font-weight: 400;
+                                    font-style: italic;
+                                    }
+
+                                    .price{
+                                        color: $blue;
+                                        font-style: italic;
+                                        font-size: 1.2em;
+                                    }
+                                .icons{
+                                    width: auto;
+                                    @include flex();
+                                    justify-content: start;
+
+                                    .icon{
+                                        margin: 10px;
+                                        background-color: $grey-light;
+                                        height: 25px;
+
+                                        i{
+                                            color: $grey-dark;
+                                        }
+
+                                    }
+                                }
+
+                                .btn{
+                                    //: right;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+
+                        .cards{
+                            @include flex();
+                            .card{
+                                margin: auto 5px 10px 5px;
+                            }
+                        }
+                    }
+
+                .item{
+                    display: block;
+
+                    &__heading{
+                        height: 50px;
+                        background-color:$grey;
+                        width: 100%;
+                        @include flex();
+
+                        h2{
+                            color: $blue;
+                        }
+
+
+
+                        .price{
+                            float: right;
+                            color: $blue;
+                            margin: auto 10px auto auto;
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 1.8em;
+                        }
+                    }
+
+                    &__body{
+                        display: block;
+
+                        &__img{
+                            width: 100%;
+                            height: 350px;
+                            overflow: hidden;
+                            padding: 5px;
+
+                            img{
+                                width: 100%;
+                                margin: auto;
+                            }
+
+                            .images{
+                                @include flex();
+                                margin: 10px auto;
+                                img{
+                                    width: 80px;
+                                    height: 50px;
+                                    margin: auto;
+                                }
+                            }
+                        }
+
+                        &__images{
+                            @include flex();
+                            justify-content: space-evenly;
+
+
+                        img{
+                            width: 100%;
+                            padding: 5px;
+                            cursor: pointer;
+                            height: 130px;
+                            margin: 10px auto;
+                        }
+
+                        img:hover{
+
+                        }
+                    }
+
+                        &__text{
+                            text-align: left;
+                            margin: 10px auto;
+
+                        }
+
+                        &__more-infos{
+                            h3{
+
+                            }
+
+                            .infos{
+                                    @include flex();
+                                    justify-content: start;
+
+                                .info{
+                                    margin: 5px;
+
+                                    i{
+                                        color: $blue;
+                                    }
+
+                                    .bi{
+                                        margin-top: 10px;
+                                        font-weight: bold;
+                                    }
+                                }
+                                }
+                            }
+
+
+                        .share-hovers{
+                            width: 220px;
+                            float: left;
+                                @include flex();
+
+                                    .share-btn{
+                                    @include share-btn();
+                                    }
+
+                                    .save{
+                                        background-color: goldenrod;
+
+                                        .fas{
+                                            display: none;
+                                        }
+                                    }
+
+                                    .whatsapp{
+                                        background-color: $green;
+                                    }
+
+                                    .facebook{
+                                        background-color: $blue-clear;
+                                    }
+
+                                    .mail{
+                                        background-color: $blue;
+                                    }
+
+                                    .save:hover,
+                                    .facebook:hover,
+                                    .whatsapp:hover,
+                                    .mail:hover{
+                                        filter: brightness(120%);
+                                    }
+
+                                }
+                                }
+                }
+                }
+
+
+                .agent{
+                    margin: auto;
+
+                    &__infos{
+                        @include flex();
+                        justify-content: start;
+                        margin: auto 15px;
+
+                        img{
+                            width: 130px;
+                            height: 90px;
+                        }
+
+                        &__list{
+                            margin-left: 10px;
+                            display: block;
+
+                            .agent-contact{
+                                @include flex();
+
+                                .btn{
+                                    height: 45px;
+                                }
+
+                                .share-btn{
+                                    @include share-btn();
+
+                                    a{
+                                        margin: auto;
+                                        width: 100%;
+                                        height: 100%;
+                                        display: table;
+
+                                        i{
+                                            display: table-cell;
+                                            vertical-align: middle;
+
+                                        }
+                                    }
+
+                                }
+
+                                .whatsapp{
+                                    background-color: $green;
+                                }
+
+                                .phone{
+                                    background-color: $red;
+                                }
+
+                                .mail{
+                                    background-color: $blue;
+                                }
+
+                            }
+
+                        }
+                    }
+
+
+                }
+
+                .contact{
+
+                    &__item{
+                        .contact-box{
+
+                            ul{
+                                padding-top: 50px;
+                                margin-top: 80px;
+                            }
+                            img{
+                                width: 120px;
+                                height: 80px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+footer{
+   // background-color: rgb(83, 80, 80);
+   .h4, p, a {
+    color: white;
+   }
+}
+
+
+/*responsive for 768px*/
+@media screen and (min-width: 350px) and (max-width: 1024px) {
+    .menu{
+        display: none;
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+
+
+    .main{
+        .section{
+            .container{
+                .hero{
+                    height: 40vh;
+                    padding-top: 60px;
+                   }
+
+                .contact{
+                    &__item{
+                        .contact-box{
+                            img{
+                                width: 120px;
+                                height: 80px;
+                            }
+                        }
+                    }
+                }
+
+                .row{
+                    .list{
+                        .box{
+                            flex-direction: column;
+                        }
+                    }
+                }
+
+
+
+            }
+        }
+    }
+}
+
+/*responsive for 767px*//*
+@media screen and (min-width: 350px) and (max-width: 767px) {
+    .menu{
+        display: none;
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+    main{
+       .content{
+        .section{
+            .blue{
+                height: auto;
+
+                .container{
+                    .boxes{
+                        flex-direction: column;
+                        height: auto;
+                        &__box{
+
+                        }
+                    }
+                }
+            }
+
+
+            .container{
+                .contact{
+                    &__item{
+                        .contact-box{
+                            img{
+                                width: 120px;
+                                height: 80px;
+                            }
+                        }
+                    }
+                }
+
+                .hero{
+                    padding-bottom: 50px;
+                    &__search{
+                        height: auto;
+                        justify-content: space-between;
+
+                        label{
+                            margin: 10px auto;
+                        }
+                    }
+                }
+                .blue{
+                    .container{
+                        .boxes{
+                            &__box{
+                                height: 400px;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+          .slider{
+                margin: 50px auto;
+            }
+       }
+    }
+}
+*/
