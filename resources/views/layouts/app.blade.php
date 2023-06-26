@@ -121,7 +121,7 @@
             {{ $slot}}
         </main>
 
-        <footer class="footer bg-secondary mt-5">
+        <footer class="footer mt-5">
             <div class=" container ">
                 <div class="row pt-3 text-left text-white fw-bold">
                     <div class="col-sm-12 col-md-4">
@@ -134,7 +134,7 @@
                     </div>
 
                     <div class="col-sm-12 col-md-4">
-                        <h3>CATEGORIES</h3>
+                        <h4>CATEGORIES</h4>
 
                         <p>
                             <a href="/appartments" class="">
@@ -157,7 +157,7 @@
 
                     <div class="col-sm-12 col-md-4 ml-0">
                         <p>
-                        <h3 class=" ml-0 text-left">LIENS </h3>
+                        <h4 class=" ml-0 text-left">LIENS </h4>
 
 
                         <a href="/about" class="">

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 
 $white: white;
-$green: #7dbf4a;
-$green-dark: #253303;
+$primary: #6a70a1;
+$secondary: #7dbf4a;
+$primary-dark: #253303;
 $grey: #F1F1F1;
 $black:black;
 $blue: #6a70a1;
@@ -13,18 +13,23 @@ $grey-dark: #6F6F6F;
 $grey-light: #F6F6F6;
 $border: rgb(235, 223, 223);
 $red: #cb2027;
+$purple: #7954CB;
+$secondary: #590925;
+$white: white;
+$grey: #4c4d4d;
+$black: black;
+$dark: #111418;
+$cyan: aliceblue;
 
 
 html, body{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    line-height: 1.7em;
-    text-align: justify;
+    line-height: 1.5em;
+    font-size: 1.1em;
     padding: 0;
     margin: 0;
-    font-size: 1em;
-    background-color: $grey;
 }
 
 @mixin flex($flex-direction: row){
@@ -32,16 +37,22 @@ html, body{
     flex-direction: $flex-direction;
     justify-content: space-between;
     flex-wrap: wrap;
-    line-height: 1em;
 }
 
 @mixin btn($color: $white, $bg: $blue, $bc: $blue){
-    color: $white;
+    color: $color;
     background-color: $bg;
-    border: 1px solid;
+    border: 3px solid;
     border-color: $bc;
     cursor: pointer;
-    width: max-content;
+    font-weight: bold;
+    min-width: 100px;
+
+}
+
+@mixin content() {
+    @include flex();
+    width: 80%;
 }
 
 @mixin share-btn(){
@@ -52,20 +63,6 @@ html, body{
     display: table;
     margin: 5px;
 }
-/*
-@keyframes card {
-    0% {
-      transform: scaleX(1.0);
-    }
-
-    30% {
-      }
-
-    100% {
-        transform: scaleX(1.1);
-    }
-    }
-*/
 
 h1{
     display: inline;
@@ -90,6 +87,10 @@ i{
     cursor: pointer;
 }
 
+img{
+    border-radius: 5px;
+}
+
 .close{
     text-align: center;
     margin: auto;
@@ -103,18 +104,18 @@ i{
     }
 
     i:hover{
-        color: $green;
+        color: $primary;
     }
 }
 
+.text{
+    font-weight: 500;
+}
 
 .text-center{
     margin: auto;
 }
 
-.text-grey{
-    color: grey
-}
 
 .text-blue{
     color: $blue-clear;
@@ -217,29 +218,6 @@ i{
 }
 
 
-.about{
-    img{
-        width: 95%;
-        height: auto;
-        border-radius: 5px;
-        margin: 50px auto;
-    }
-
-    &__text{
-        .buttons{
-            .btn{
-                margin: 5px;
-            }
-        }
-    }
-}
-
-.about-img{
-    width: 350px;
-    margin: auto;
-    height: auto;
-    border-radius: 5px;
-}
 .dashboard{
     &__menu{
         .menu{
@@ -261,7 +239,7 @@ i{
                 }
 
                 .activee{
-                    background-color: $green;
+                    background-color: $primary;
                 }
 
             }
@@ -293,8 +271,8 @@ i{
 }
 
 .btn-link:hover{
-    background-color: $green;
-    border: 1px solid $green;
+    background-color: $primary;
+    border: 1px solid $primary;
     color: $white;
 }
 
@@ -334,11 +312,11 @@ i{
 }
 
 .btn-primary:hover{
-    background-color: $green;
-    border-color: $green;
-    a{
-        color: $white;
-    }
+   @include btn($primary, $white, $primary);
+
+   a{
+    color: $primary;
+   }
 }
 
 a{
@@ -386,7 +364,7 @@ span{
 }
 
 .up:hover{
-    background-color: $green;
+    background-color: $primary;
 }
 
 .slider-img{
@@ -397,10 +375,50 @@ span{
 
 .main{
     display: block;
-
         .content{
             display: block;
             width: 100%;
+
+            .hero{
+                height: 75vh;
+                margin: 0 auto;
+                z-index: -9999;
+                display: block;
+                background-image: linear-gradient(rgba(177, 108, 223, 0.548), rgba(15, 35, 153, 0.589)),
+                url('/img/bureau2.jpg');
+               background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding-bottom: 15px;
+                width: 100%;
+                padding-top: 20px;
+
+
+                &__content{
+                    width: 80%;
+                    margin: auto;
+                    height: 100%;
+                    padding-top: 110px;
+                    text-align: center;
+
+                    h1{
+                        font-size: 3em;
+                        font-style: italic;
+                        color: $white;
+                    }
+
+                    p{
+                        margin: 40px auto;
+                        font-style: 1.1em;
+                        font-weight: 800;
+
+                    }
+                }
+
+            }
 
             .section{
                 width: 100%;
@@ -429,54 +447,116 @@ span{
                                 button{
                                     width: 100%;
                                     height: 100%;
-                                    background-color: $green;
+                                    background-color: $primary;
                                     color: $white;
                                     border: none;
                                 }
 
                                 button:hover{
-                                    background-color: $green-dark;
+                                    background-color: $primary-dark;
                                 }
                             }
                         }
 
                    }
 
-                .hero{
-                    height: 60vh;
-                    min-height: 400px;
-                    margin: 0 auto;
-                    display: block;
-                    background-image:  linear-gradient(to bottom, rgba(55, 160, 226, 0.52), rgba(121, 165, 144, 0.73)),
-                    url('/img/bureau2.jpg');
-                    background-position: center;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    width: 100%;
-                    padding-top: 50px;
 
+                .app{
+                    width: 100%;
+                   @include flex(column);
+                   text-align: center;
+                   margin: 20px auto 0 auto;
 
                     &__content{
-                        width: 80%;
-                        margin: auto;
-                        height: 100%;
-                        padding-top: 50px;
-                        text-align: center;
+                        @include flex(column);
+                        margin: 20px auto;
+                        width: 100%;
 
-                        h1{
-                            font-size: 3em;
-                            color: $white;
-                            font-family: 'Source Sans Pro', sans-serif;
+                        h2{
+                            color: $purple;
                         }
-
                         p{
-                            margin: 20px auto;
-                            font-size: 1.2em;
-                            font-weight: 900;
+                            margin: 20px auto 0 auto;
+                            width: 80%;
                         }
 
+                       &__items{
+                        @include flex();
+                        margin: 20px auto;
+                        width: 100%;
+                        .item{
+                            height: auto;
+                            width: 270px;
+                            border: 2px $purple;
+                            border-radius: 15px;
+                            margin: 15px auto;
+                            box-shadow: 0px 5px 28px #00000029;
+
+
+                            .icon{
+                                text-align: center;
+                                margin: 30px auto;
+                                i{
+                                    font-size: 2em;
+                                    color: $purple;
+                                    font-weight: bold;
+
+                                }
+                            }
+
+                            h3{
+                                font-size: 1.2em;
+                            }
+
+                            p{
+                                line-height: 1.6em
+                            }
+
+                        }
+                       }
                     }
+
                 }
+
+                .grey{
+                    &__content{
+                        @include flex();
+                        &__image{
+                            width: 350px;
+                            height: 350px;
+                            text-align: center;
+                            flex: 1;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                margin: 20px auto;
+                            }
+                        }
+
+                        &__text{
+                            flex: 1;
+                           width: 100%;
+                           padding-top: 5px;
+                            margin: auto 30px;
+                            text-align: center;
+
+                            h2{
+                                margin: 20px auto;
+                            }
+
+                            .text{
+                                margin: 15px auto;
+                               line-height: 1.7em;
+                               text-align: left;
+                            }
+
+                        }
+                    }
+
+                }
+
+
 
                 .row{
                     .tags{
@@ -534,7 +614,7 @@ span{
 
                         .box{
                             @include flex();
-                            margin: 20px auto;
+                            margin: 20px auto ;
                             border: none;
 
                             &__img{
@@ -596,8 +676,7 @@ span{
                                 }
 
                                 .btn{
-                                    //: right;
-                                    margin-right: 10px;
+                                   width: 110px;
                                 }
                             }
                         }
@@ -727,7 +806,7 @@ span{
                                     }
 
                                     .whatsapp{
-                                        background-color: $green;
+                                        background-color: $primary;
                                     }
 
                                     .facebook{
@@ -794,7 +873,7 @@ span{
                                 }
 
                                 .whatsapp{
-                                    background-color: $green;
+                                    background-color: $primary;
                                 }
 
                                 .phone{
@@ -830,15 +909,21 @@ span{
                     }
                 }
             }
+              }
         }
-    }
 }
 
 
-footer{
-   // background-color: rgb(83, 80, 80);
-   .h4, p, a {
-    color: white;
+.footer{
+    background-color: black;
+   .container{
+    .h4, p, a {
+        color: white;
+       }
+   }
+
+   .h4{
+    font-weight: bold;
    }
 }
 
@@ -855,34 +940,58 @@ footer{
 
 
     .main{
-        .section{
-            .container{
-                .hero{
-                    height: 40vh;
-                    padding-top: 60px;
-                   }
+        .content{
+            .hero{
+                height: 60vh;
+                padding-top: 60px;
+               }
+            .section{
+                .container{
+                    .contact{
+                        &__item{
+                            .contact-box{
+                                img{
+                                    width: 120px;
+                                    height: 80px;
+                                }
+                            }
+                        }
+                    }
 
-                .contact{
-                    &__item{
-                        .contact-box{
-                            img{
-                                width: 120px;
-                                height: 80px;
+                    .row{
+                        .list{
+                            .box{
+                                flex-direction: column;
+                            }
+                        }
+                    }
+
+                    .grey{
+                        text-align: center;
+                        &__content{
+                            flex-direction: column;
+
+                            &__image{
+                                width: 310px;
+                                height: 310px;
+                                text-align: center;
+
+                                img{
+                                    margin: 5px auto;
+                                }
+                            }
+
+                            &__text{
+                                width: 100%;
+                                margin: auto;
+                                .text{
+                                    width: 90%;
+                                    margin: auto;
+                                }
                             }
                         }
                     }
                 }
-
-                .row{
-                    .list{
-                        .box{
-                            flex-direction: column;
-                        }
-                    }
-                }
-
-
-
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div class="" >
+        <div class="" v-if="details.length != 0">
             <section class='section bg-light' v-for="detail in details"
                                             :key="detail.id">
             <div class="container">
@@ -22,9 +22,10 @@
                         <div class="tags ">
 
             <div class="tags__body  text-center">
-                    <div class="">
+                    <div class="" v-if="detail.type !== 'Terrain'">
                                 <div class="tag">
-
+                                    <p v-if="detail.rooms == 1"> <i class="fas fa-bed"></i> {{ detail.rooms }}  chambre</p>
+                                    <p v-if="detail.rooms > 1"> <i class="fas fa-bed"></i> {{ detail.rooms }}  chambres</p>
                                 </div>
 
                         <hr>
@@ -54,6 +55,12 @@
                         </div>
                     </div>
 
+                    <div class="" v-if="detail.type === 'Terrain'">
+                        <div class="tag">
+                        <i class="fas fa-layer-group"></i> 500 m2
+                        </div>
+
+                    </div>
             </div>
 
             <div class="tags__btn text-center">
@@ -72,17 +79,17 @@
                                     <div class="row">
                                         <div class="item__heading">
                                             <h2 class='text-left'>
-                                              bhb
+                                               {{detail.name}}
                                             </h2>
 
                                             <span class="price">
-                                             1 000 XOF
+                                                {{ format(detail.price)}} XOF
                                             </span>
                                         </div>
 
                                         <div class="item__body">
                                             <div class="item__body__img">
-                                                img
+                                                <img :src='getImgUrl(detail.pic1)'>
                                             </div>
 
                                             <div class="item__body__images">
@@ -90,10 +97,20 @@
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-sm-6 col-md-3">
-                                                               img
+                                                                <img :src='getImgUrl(detail.pic1)' class="pic">
                                                              </div>
 
+                                                             <div class="col-sm-6 col-md-3" v-if="detail.pic3 && detail.pic3.trim() !== ''">
+                                                            <img :src='getImgUrl(detail.pic3)' class="pic">
+                                                        </div>
 
+                                                        <div class="col-sm-6 col-md-3" v-if="detail.pic4 && detail.pic4.trim() !== ''">
+                                                             <img :src='getImgUrl(detail.pic4)' class="pic">
+                                                        </div>
+
+                                                        <div class="col-sm-6 col-md-3" v-if="detail.pic5 && detail.pic5.trim() !== ''">
+                                                            <img :src='getImgUrl(detail.pic5)' class="pic">
+                                                        </div>
                                                 </div>
                                                         </div>
                                                     </div>
@@ -106,7 +123,7 @@
                                                 <p class="text text-grey text-left">
                                                     <i class="bi-bookmark-fill"></i> En vente <br> <br>
 
-                                                       hjnjkn
+                                                        {{ detail.description}}
                                                 </p>
                                             </div>
 
@@ -118,20 +135,20 @@
                                                 </h3>
 
                                                 <p class="text text-grey">
-                                                 hkjnlkj
+                                                  {{ detail.more_description}}
                                                 </p>
 
                                                 <div class="infos">
                                                     <div class="info">
-                                                        <i class="fas fa-calendar"></i> hghjhkb
+                                                        <i class="fas fa-calendar"></i> {{ detail.date_of_insertion}}
                                                     </div>
 
                                                     <div class="info">
-                                                        <i class="bi bi-eye"></i> fgvj
+                                                        <i class="bi bi-eye"></i> {{ format(detail.views)}}
                                                     </div>
 
                                                     <div class="info">
-                                                        <i class="bi bi-share"></i> ygjhgh
+                                                        <i class="bi bi-share"></i> {{ format(detail.share)}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -145,28 +162,28 @@
                                 </h3>
                                 </div>
                                 <div class="agent__infos">
-                                   img
+                                    <img :src="getImgUrl(detail.image)">
                                     <div class="agent__infos__list">
                                         <h4>
-                                           yfgjhbkh
+                                            {{  detail.first_name}}  {{  detail.last_name}}
                                         </h4>
 
                                         <div class="agent-contact">
-                                            <a href="" class="btn btn-primary">
+                                            <a :href="'adsBySeller?id=' + detail.seller_id" class="btn btn-primary">
                                                 Voir profil
                                             </a>
 
                                                 <div class="share-btn whatsapp">
-                                                    <a :href="'https://wa.me/?text=Bonjour,%votre%annonce%sur%Immobilier%Bénin%...'">
+                                                    <a :href="'https://wa.me/' + detail.phone_code + detail.phone_number + '?text=Bonjour,%votre%annonce%sur%Immobilier%Bénin%...'">
                                                     <i class="fab fa-whatsapp"></i>
                                                      </a>
                                                 </div>
-                                                    <div class="share-btn phone" >
+                                                    <div class="share-btn phone" @click="callSeller(detail.phone_code, detail.phone_number)">
                                                         <i class="bi bi-phone"></i>
                                                     </div>
 
                                                     <div class="share-btn mail">
-                                                    <a href="">
+                                                    <a :href="'mailto:' + detail.email" >
                                                         <i class="fas fa-envelope"></i>
                                                      </a>
                                                 </div>
@@ -185,22 +202,22 @@
                                                 </h3>
 
                                                 <div class="share-btns">
-                                                    <div class="share-btn save"  >
+                                                    <div class="share-btn save"  @click="save(detail.id)">
                                                         <i class="far fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                     </div>
 
-                                                    <div class="share-btn whatsapp" >
+                                                    <div class="share-btn whatsapp"  @click="shareByWhatsapp(detail.id)">
                                                         <i class="fab fa-whatsapp"></i>
                                                     </div>
 
 
-                                                    <div class="share-btn facebook">
+                                                    <div class="share-btn facebook"  @click="shareByFacebook(detail.id)">
                                                         <i class="fab fa-facebook"></i>
                                                     </div>
 
                                                     <a  class="share-btn mail"
-                                                    href="">
+                                                    href="mailto:?subject=Decouvre cette annonce&amp;body=Voici l'URL de la page : https://immobilierbenin.com/item?id=detail.id">
                                                     <i class="fas fa-envelope"></i>
                                                     </a>
                                                 </div>

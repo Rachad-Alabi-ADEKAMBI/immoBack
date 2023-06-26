@@ -3,7 +3,7 @@
   <section class='section bg-light'>
      <div class="container">
 
-          <div class="row mx-auto pt-5">
+          <div class="row mx-auto">
               <Tags class="col-sm-12 col-md-12 col-lg-3">
                 <div class="">
                      <div class="tags ">
@@ -102,8 +102,8 @@
                   <div class="list">
 
                     <!--show filters-->
-                    <div class="container">
-                        <div class='buttons mx-auto text text-center' v-if="showFilters">
+                    <div class="container mb-4">
+                        <div class='buttons mx-auto text text-center ' v-if="showFilters">
 
                             <input type="range" v-model="rangeValue" min="0"
                             max="2000000" class="buttons__item"   @click="getRange()">
@@ -123,12 +123,11 @@
 
                             <div class="buttons__item">
                                 <i class="bi bi-search search-icon" @click="displaySearch()"></i>
-                                S
                             </div>
                         </div>
                         <hr>
 
-                        <div class="mx-auto text-center search-field pt-3" v-if="showSearch">
+                        <div class="mx-auto  text-center search-field pt-3" v-if="showSearch">
                                 <input type="text" placeholder="Nom ou modèle" v-model="searchText">
                             <i class="bi bi-x" @click="getAllCars()"></i>
                         </div>
@@ -144,7 +143,7 @@
                                   </h2>
                               </div>
 
-                              <div class="col-12 box" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
+                              <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
                                       <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> En vente</p>
@@ -195,22 +194,19 @@
 
                                       <div class="icons" v-if="detail.type === 'Terrain'">
                                         <div class="icon">
-                <i class="fas fa-layer-group"></i>
-                {{detail.size  }} m²
-            </div>
-
+                                            <i class="fas fa-layer-group"></i>
+                                            {{detail.size  }} m²
+                                        </div>
                                       </div>
 
-                                      <button class="btn btn-primary">
-                                          <a v-bind:href="'/ad/'+ detail.id">
+                                          <a v-bind:href="'/ad/'+ detail.id" class="btn btn-primary">
                                               Voir
                                           </a>
-                                      </button>
                                   </div>
                               </div>
 
                               <div class="col-12" v-if="details.length == 0">
-                                <p class="text">
+                                <p class="text text-center">
                                     Aucune annonce à afficher
                                 </p>
                               </div>

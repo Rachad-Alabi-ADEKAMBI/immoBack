@@ -29,6 +29,7 @@ return new class extends Migration {
             $table->string('category')->nullable();
             $table->string('status')->nullable();
             $table->integer('seller_id')->nullable();
+            $table->string('type')->nullable();
 
             $table->string('pic1')->nullable();
             $table->string('pic2')->nullable();

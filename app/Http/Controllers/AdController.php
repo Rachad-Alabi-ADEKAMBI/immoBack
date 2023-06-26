@@ -147,6 +147,13 @@ class AdController extends Controller
         return response()->json($data);
     }
 
+    public function adApi($id)
+    {
+        $data = Ad::find($id);
+
+        return response()->json($data);
+    }
+
     public function myAdsApi()
     {
         $userId = auth()->id();
