@@ -42,7 +42,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar nav navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/logo-transparent.png') }}" alt="">
@@ -70,11 +70,7 @@
                         @endauth
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/sellers">{{ __('Agents') }}</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">{{ __('Contact') }}</a>
+                            <a class="nav-link" href="/#contact">{{ __('Contact') }}</a>
                         </li>
                     </ul>
 
@@ -115,7 +111,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> <br><br>
 
         <main class="py-4 main">
             {{ $slot}}
@@ -163,7 +159,7 @@
                         <a href="/about" class="">
                             <i class="fas fa-arrow-right"></i> A-propos
                         </a> <br>
-                        <a href="/contact">
+                        <a href="/#contact">
                             <i class="fas fa-arrow-right"></i> Contact
                         </a><br>
                         <a href="/terms">
@@ -199,6 +195,15 @@
         </footer>
     </div>
     <script src="{{asset('js/script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

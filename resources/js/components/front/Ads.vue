@@ -49,22 +49,8 @@
                      <hr>
 
                      <div class="tags__body text-center">
-                        <div class="tag">
-                            <select id="" @click="getByLocation()" v-model="location">
-                                    <option value="" disabled selected>Veuillez sélectionner</option>
-                                    <option value="Cotonou">Cotonou</option>
-                                    <option value="Abomey-Calavi">Abomey-Calavi</option>
-                                    <option value="Porto-Novo">Porto-Novo</option>
-                                    <option value="Parakou">Parakou</option>
-                                    <option value="Bohicon">Bohicon</option>
-                                    <option value="Ouidah">Ouidah</option>
-                                    <option value="Abomey">Abomey</option>
-                                    <option value="Malanville">Malanville</option>
-                                    <option value="Natitingou">Natitingou</option>
-                                </select>
-                        </div>
 
-                         <div class="tag" @click="getByLocation('Bohicon')" >
+                        <div class="tag" @click="getByLocation('Bohicon')" >
                                  <i class="bi bi-arrow-right"></i>Bohicon
                          </div>
 
@@ -93,6 +79,7 @@
                                  <i class="bi bi-arrow-right"></i> Parakou
                               </router-link>
                          </div>
+
                      </div>
      </div>
     </div>
@@ -109,7 +96,7 @@
                             max="2000000" class="buttons__item"   @click="getRange()">
 
                                 <div class="buttons__item">
-                                    <button class="btn btn-primary m-1"  @click='getAllCars()'>
+                                    <button class="btn btn-primary m-1"  @click='getAds()'>
                                         Tout voir
                                     </button>
                                     <button @click='getToSell()' class="btn btn-primary m-1">
@@ -128,25 +115,26 @@
                         <hr>
 
                         <div class="mx-auto  text-center search-field pt-3" v-if="showSearch">
-                                <input type="text" placeholder="Nom ou modèle" v-model="searchText">
-                            <i class="bi bi-x" @click="getAllCars()"></i>
+                                <input type="text" placeholder="Ecrivez quelque chose..."
+                                 v-model="searchText" @click="getByName()">
+                            <i class="bi bi-x ml-1" @click="getAds()"></i>
                         </div>
                     </div>
                     <!--end filters-->
 
-                    <!--show ads-->
+                    <!--show all ads-->
                       <div class="container" v-if="showAds">
                           <div class="row">
                               <div class="list__heading">
                                   <h2 class='span text-center subtitle'>
-                                      TOUTES LES ANNONCES
+                                      Toutes les annonces <span>({{ details.length }})</span>
                                   </h2>
                               </div>
 
                               <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> En vente</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -165,7 +153,7 @@
                                           {{  format(detail.price) }} XOF
                                       </strong>
 
-                                      <div class="icons" v-if="detail.type !== 'Terrain'">
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
                                           <div class="icon ">
                                               <i class="fas fa-bed"></i>
                                               {{ detail.rooms }} chambres
@@ -192,7 +180,7 @@
                                           </div>
                                       </div>
 
-                                      <div class="icons" v-if="detail.type === 'Terrain'">
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
                                         <div class="icon">
                                             <i class="fas fa-layer-group"></i>
                                             {{detail.size  }} m²
@@ -216,19 +204,19 @@
                       </div>
                     <!--end show ads-->
 
-                    <!--show by category-->
-                    <div class="container" v-if="showByCategory">
+                      <!--show to rent -->
+                      <div class="container" v-if="showToRent">
                           <div class="row">
                               <div class="list__heading">
                                   <h2 class='span text-center subtitle'>
-                                      ANNONCES DE LA CATEGORIE {{ category }}
+                                      Annonces de location <span>({{ details.length }})</span>
                                   </h2>
                               </div>
 
-                              <div class="col-12 box" v-for="detail in itemsByCategory" :key="detail.id" v-if="itemsByCategory.length > 0">
+                              <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> En vente</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -247,7 +235,7 @@
                                           {{  format(detail.price) }} XOF
                                       </strong>
 
-                                      <div class="icons" v-if="detail.type !== 'Terrain'">
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
                                           <div class="icon ">
                                               <i class="fas fa-bed"></i>
                                               {{ detail.rooms }} chambres
@@ -274,7 +262,255 @@
                                           </div>
                                       </div>
 
-                                      <div class="icons" v-if="detail.type === 'Terrain'">
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                            {{detail.size  }} m²
+                                        </div>
+                                      </div>
+
+                                          <a v-bind:href="'/ad/'+ detail.id" class="btn btn-primary">
+                                              Voir
+                                          </a>
+                                  </div>
+                              </div>
+
+                              <div class="col-12" v-if="details.length == 0">
+                                <p class="text text-center">
+                                    Aucune annonce à afficher
+                                </p>
+                              </div>
+
+                          </div>
+
+                      </div>
+                    <!--end to rent-->
+
+                      <!--show to sell -->
+                      <div class="container" v-if="showToSell">
+                          <div class="row">
+                              <div class="list__heading">
+                                  <h2 class='span text-center subtitle'>
+                                      Annonces de vente <span>({{ details.length }})</span>
+                                  </h2>
+                              </div>
+
+                              <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
+                                  <div class="box__img">
+                                      <img :src='getImgUrl(detail.pic1)'>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                  </div>
+
+                                  <div class="box__infos" >
+                                      <h2>
+                                      {{ detail.name }}
+                                      </h2>
+
+                                      <span>
+                                          <p class="text-grey">
+                                              <i class="bi bi-geo-alt"></i>
+                                              {{ detail.location }}, {{ detail.area }}
+                                          </p>
+                                              </span><br>
+
+                                      <strong class="price">
+                                          {{  format(detail.price) }} XOF
+                                      </strong>
+
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
+                                          <div class="icon ">
+                                              <i class="fas fa-bed"></i>
+                                              {{ detail.rooms }} chambres
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-shower"></i>
+                                              {{ detail.bathrooms }} douches
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi-egg-fried"></i>
+                                              {{ detail.kitchens }} cuisine
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi bi-tv"></i>
+                                              {{detail.living_rooms  }} salons
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-warehouse"></i>
+                                              {{detail.living_rooms  }} magasins
+                                          </div>
+                                      </div>
+
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                            {{detail.size  }} m²
+                                        </div>
+                                      </div>
+
+                                          <a v-bind:href="'/ad/'+ detail.id" class="btn btn-primary">
+                                              Voir
+                                          </a>
+                                  </div>
+                              </div>
+
+                              <div class="col-12" v-if="details.length == 0">
+                                <p class="text text-center">
+                                    Aucune annonce à afficher
+                                </p>
+                              </div>
+
+                          </div>
+
+                      </div>
+                    <!--end to sell-->
+
+
+                      <!--show by name -->
+                      <div class="container" v-if="showByName">
+                          <div class="row">
+                              <div class="list__heading">
+                                  <h2 class='span text-center subtitle'>
+                                      Résultats de la recherche <span>({{ searchItems.length }})</span>
+                                  </h2>
+                              </div>
+
+                              <div class="col-12 box card mb-4" v-for="detail in searchItems" :key="detail.id"
+                              v-if="searchItems.length > 0">
+                                  <div class="box__img">
+                                      <img :src='getImgUrl(detail.pic1)'>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                  </div>
+
+                                  <div class="box__infos" >
+                                      <h2>
+                                      {{ detail.name }}
+                                      </h2>
+
+                                      <span>
+                                          <p class="text-grey">
+                                              <i class="bi bi-geo-alt"></i>
+                                              {{ detail.location }}, {{ detail.area }}
+                                          </p>
+                                              </span><br>
+
+                                      <strong class="price">
+                                          {{  format(detail.price) }} XOF
+                                      </strong>
+
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
+                                          <div class="icon ">
+                                              <i class="fas fa-bed"></i>
+                                              {{ detail.rooms }} chambres
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-shower"></i>
+                                              {{ detail.bathrooms }} douches
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi-egg-fried"></i>
+                                              {{ detail.kitchens }} cuisine
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi bi-tv"></i>
+                                              {{detail.living_rooms  }} salons
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-warehouse"></i>
+                                              {{detail.living_rooms  }} magasins
+                                          </div>
+                                      </div>
+
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                            {{detail.size  }} m²
+                                        </div>
+                                      </div>
+
+                                          <a v-bind:href="'/ad/'+ detail.id" class="btn btn-primary">
+                                              Voir
+                                          </a>
+                                  </div>
+                              </div>
+
+                              <div class="col-12" v-if="searchItems.length == 0">
+                                <p class="text text-center">
+                                    Aucune annonce à afficher
+                                </p>
+                              </div>
+
+                          </div>
+
+                      </div>
+                    <!--end by name-->
+
+                    <!--show by category-->
+                    <div class="container" v-if="showByCategory">
+                          <div class="row">
+                              <div class="list__heading">
+                                  <h2 class='span text-center subtitle'>
+                                      Annonces de la catégorie {{ category }} <span>({{ itemsByCategory.length }})</span>
+                                  </h2>
+                              </div>
+
+                              <div class="col-12 box" v-for="detail in itemsByCategory" :key="detail.id" v-if="itemsByCategory.length > 0">
+                                  <div class="box__img">
+                                      <img :src='getImgUrl(detail.pic1)'>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                  </div>
+
+                                  <div class="box__infos" >
+                                      <h2>
+                                      {{ detail.name }}
+                                      </h2>
+
+                                      <span>
+                                          <p class="text-grey">
+                                              <i class="bi bi-geo-alt"></i>
+                                              {{ detail.location }}, {{ detail.area }}
+                                          </p>
+                                              </span><br>
+
+                                      <strong class="price">
+                                          {{  format(detail.price) }} XOF
+                                      </strong>
+
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
+                                          <div class="icon ">
+                                              <i class="fas fa-bed"></i>
+                                              {{ detail.rooms }} chambres
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-shower"></i>
+                                              {{ detail.bathrooms }} douches
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi-egg-fried"></i>
+                                              {{ detail.kitchens }} cuisine
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="bi bi-tv"></i>
+                                              {{detail.living_rooms  }} salons
+                                          </div>
+
+                                          <div class="icon">
+                                              <i class="fas fa-warehouse"></i>
+                                              {{detail.living_rooms  }} magasins
+                                          </div>
+                                      </div>
+
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
                                         <div class="icon">
                 <i class="fas fa-layer-group"></i>
                 {{detail.size  }} m²
@@ -291,7 +527,7 @@
                               </div>
 
                               <div class="col-12" v-if="itemsByCategory.length == 0">
-                                <p class="text">
+                                <p class="text text-center">
                                     Aucune annonce à afficher
                                 </p>
                               </div>
@@ -306,14 +542,14 @@
                           <div class="row">
                               <div class="list__heading">
                                   <h2 class='span text-center subtitle'>
-                                      ANNONCES DE {{  location }}
+                                      Annonces de {{  locationn }} <span>({{ itemsByLocation.length }})</span>
                                   </h2>
                               </div>
 
                               <div class="col-12 box" v-for="detail in itemsByLocation" :key="detail.id" v-if="itemsByLocation.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> En vente</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -332,7 +568,7 @@
                                           {{  format(detail.price) }} XOF
                                       </strong>
 
-                                      <div class="icons" v-if="detail.type !== 'Terrain'">
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
                                           <div class="icon ">
                                               <i class="fas fa-bed"></i>
                                               {{ detail.rooms }} chambres
@@ -359,7 +595,7 @@
                                           </div>
                                       </div>
 
-                                      <div class="icons" v-if="detail.type === 'Terrain'">
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
                                         <div class="icon">
                 <i class="fas fa-layer-group"></i>
                 {{detail.size  }} m²
@@ -376,7 +612,7 @@
                               </div>
 
                               <div class="col-12" v-if="itemsByLocation.length == 0">
-                                <p class="text">
+                                <p class="text text-center">
                                     Aucune annonce à afficher
                                 </p>
                               </div>
@@ -392,14 +628,14 @@
                           <div class="row">
                               <div class="list__heading">
                                   <h2 class='span text-center subtitle'>
-                                      RESULTATS DU TRI POUR {{ rangeValue }} XOF
+                                      Résultats du tri pour <strong>{{ format(rangeValue) }} XOF</strong> <span>({{ filteredItems.length }})</span>
                                   </h2>
                               </div>
 
                               <div class="col-12 box" v-for="detail in filteredItems" :key="detail.id" v-if="filteredItems.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> En vente</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -418,7 +654,7 @@
                                           {{  format(detail.price) }} XOF
                                       </strong>
 
-                                      <div class="icons" v-if="detail.type !== 'Terrain'">
+                                      <div class="icons" v-if="detail.action !== 'Terrain'">
                                           <div class="icon ">
                                               <i class="fas fa-bed"></i>
                                               {{ detail.rooms }} chambres
@@ -445,7 +681,7 @@
                                           </div>
                                       </div>
 
-                                      <div class="icons" v-if="detail.type === 'Terrain'">
+                                      <div class="icons" v-if="detail.action === 'Terrain'">
                                         <div class="icon">
                 <i class="fas fa-layer-group"></i>
                 {{detail.size  }} m²
@@ -462,7 +698,7 @@
                               </div>
 
                               <div class="col-12" v-if="filteredItems.length == 0">
-                                <p class="text">
+                                <p class="text text-center">
                                     Aucune annonce à afficher
                                 </p>
                               </div>
@@ -471,9 +707,6 @@
 
                       </div>
                     <!--end show ads-->
-
-
-
                   </div>
               </div>
           </div>
@@ -489,17 +722,20 @@
           return {
             details: [],
             showAds: false,
+            showToRent: false,
+            showToSell: false,
             showByCategory: false,
             showFilters: false,
             itemsByCategory: [],
             itemsByLocation: [],
             showSearch: false,
+            showByName: false,
             rangeValue: '',
             showFiltered: false,
             rangeValue: '',
             category: '',
-            searchKey: '',
-            location: '',
+            searchText: '',
+            locationn: '',
             price: '',
             city: ''
           };
@@ -508,60 +744,128 @@
             this.getAds();
         },
         computed: {
-             /*   itemsByCategory() {
-            return this.details.filter(detail => {
-                return detail.type = this.category;
-            });
-            },
-            */
+            itemsByCategory() {
+                    return this.details.filter(detail => {
+                        return detail.type === this.category;
+                    });
+                },
+                itemsByLocation() {
+                    return this.details.filter(detail => {
+                        return detail.location === this.locationn;
+                    });
+                },
+
             filteredItems() {
                 return this.details.filter(detail => {
                     return detail.price >= this.rangeValue;
                 });
+
                 },
             searchItems() {
-                    return this.details.filter(detail => {
-                                    return detail.name.toLowerCase().includes(this.searchText.toLowerCase())
-                                })
+                return this.details.filter(detail => {
+    return (
+        detail.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        detail.area.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        detail.description.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+});
+
            },
         },
     methods:{
         getAds() {
-              axios.get('/allAdsApi').then(
+            axios.get('/availableAdsApi').then(
               response =>
               this.details = response.data);
               this.showAds = true;
+              this.showToRent = false;
+              this.showToSell = false;
+              this.showByLocation = false;
+              this.showFiltered = false;
+              this.showByType = false;
+              this.showFilters = true;
+              this.showByName = false;
+              this.showSearch = false;
+
+          },
+          getToRent(){
+            axios.get('/availableAdsApi').then(response => {
+            this.details = response.data.filter(item => item.action === 'A louer');
+            });
+              this.showAds = false;
+              this.showToRent = true;
+              this.showToSell = false;
               this.showByCategory = false;
               this.showByLocation = false;
               this.showFilters = true;
+              this.showFiltered = false;
+              this.showByName = false;
+              this.showSearch = false;
           },
+          getToSell(){
+            axios.get('/availableAdsApi').then(response => {
+            this.details = response.data.filter(item => item.action === 'A vendre');
+            });
+              this.showAds = false;
+              this.showToRent = false;
+              this.showToSell = true;
+              this.showByCategory = false;
+              this.showByLocation = false;
+              this.showFilters = true;
+              this.showFiltered = false;
+              this.showByName = false;
+              this.showSearch = false;
+          },
+          getByName(){
+              this.showAds = false;
+              this.showToRent = false;
+              this.showToSell = false;
+              this.showByCategory = false;
+              this.showByLocation = false;
+              this.showFilters = false;
+              this.showFiltered = false;
+              this.showByName = true;
+              this.showSearch = true;
+          },
+
           getByCategory(category){
             this.category = category;
             this.showAds = false;
+            this.showToRent = false;
+              this.showToSell = false;
             this.showByCategory = true;
             this.showByLocation = false;
-            this.itemsByCategory = this.details.filter(detail => {
-                return detail.type = this.category;
-            });
+            this.showFiltered = false;
+            this.showByName = false;
+            this.showSearch = false;
           },
-          getByLocation(){
+          getByLocation(locationn){
+            this.locationn = locationn;
             this.showAds = false;
             this.showByCategory = false;
             this.showByLocation = true;
-            this.itemsByLocation = this.details.filter(detail => {
-                return detail.location = this.location;
-            });
+            this.showToRent = false;
+              this.showToSell = false;
+            this.showFiltered = false;
+            this.showByName = false;
+            this.showSearch = false;
           },
           getRange(){
             this.showAds = false;
+              this.showToRent = false;
+              this.showToSell = false;
+              this.showByLocation = false;
+              this.showFiltered = false;
+              this.showByType = false;
             this.showFiltered = true;
+            this.showSearch = false;
           },
           displaySearch(){
             this.showSearch = true;
             this.showFilters = false;
           },
           getImgUrl(pic) {
-  return "/img/ads/" + pic;
+  return "immo/public/img/ads/" + pic;
 },
 format(num){
   let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);

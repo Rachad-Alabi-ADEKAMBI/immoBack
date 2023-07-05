@@ -147,6 +147,15 @@ class AdController extends Controller
         return response()->json($data);
     }
 
+    public function availableAdsApi()
+    {
+        $data = Ad::where('status', 'Disponible')
+            ->orderByDesc('id')
+            ->get();
+
+        return response()->json($data);
+    }
+
     public function adApi($id)
     {
         $data = Ad::find($id);

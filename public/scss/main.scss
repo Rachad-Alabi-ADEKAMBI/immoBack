@@ -91,6 +91,11 @@ img{
     border-radius: 5px;
 }
 
+.nav{
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+}
 .close{
     text-align: center;
     margin: auto;
@@ -230,7 +235,6 @@ img{
             @include flex(column);
             justify-content: start;
             color: $white;
-
             &__items{
                 display: block;
 
@@ -367,20 +371,35 @@ span{
     background-color: $primary;
 }
 
+.bi-x{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bi-x:hover{
+    font-weight: bolder;
+}
+
 .slider-img{
     height: 400px;
     margin: auto;
     width: 80%;
 }
 
+.subtitle{
+    color: $primary;
+}
+
 .main{
     display: block;
+    margin: 0px auto;
+    padding-top: 50px;
         .content{
             display: block;
             width: 100%;
 
             .hero{
-                height: 75vh;
+                height: 85vh;
                 margin: 0 auto;
                 z-index: -9999;
                 display: block;
@@ -394,7 +413,7 @@ span{
                 background-repeat: no-repeat;
                 padding-bottom: 15px;
                 width: 100%;
-                padding-top: 20px;
+                padding-top: 50px;
 
 
                 &__content{
@@ -556,7 +575,128 @@ span{
 
                 }
 
+                .faq{
+                    margin: 10px auto 0 auto;
+                    padding-bottom: 0;
 
+                    &__content{
+                        margin: 30px auto;
+                        @include flex(column);
+
+                        h2{
+
+                        }
+
+                        .accordion{
+                            .card{
+                                border-radius: 15px;
+                                width: 80%;
+                                background-color: $cyan;
+                                margin: 10px auto;
+                            }
+                        }
+                    }
+                }
+
+                .updates{
+                    height: auto;
+                    padding-bottom: 30px;
+                    display: block;
+                    margin: 0px auto;
+                    &__content{
+                        @include flex(column);
+                        p{
+                            margin: 20px auto;
+                        }
+
+                        &__articles{
+                            @include flex();
+                            width: 100%;
+
+                            .article{
+                                width: 300px;
+                                height: auto;
+                                margin: 30px;
+                                box-shadow: 0px 5px 28px #00000029;
+                                text-align: center;
+                                padding-bottom: 20px;
+                                border-radius: 10px;
+
+                                img{
+                                    margin: 10px auto 0 auto;
+                                    border-radius: 10px;
+                                    width: 90%;
+                                    height: 240px;
+                                }
+
+                                h3{
+                                    margin: 10px auto 0 auto;
+                                }
+
+                                .date{
+                                    @include flex();
+                                    margin: 0 auto;
+
+                                    p{
+
+                                    }
+
+                                    .time{
+
+                                    }
+                                }
+
+                                p{
+                                    text-align: left;
+                                    padding-left: 0;
+                                    width: 95%;
+                                }
+
+                                .btn{
+                                    font-size: 0.8em;
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+
+                .contact{
+                    margin: 30px auto;
+
+                    &__content{
+                        @include content();
+
+                        &__form{
+                            flex: 1;
+
+                            text-align: left    ;
+                        }
+
+                        &__infos{
+                            flex: 1;
+                            text-align: left;
+                            padding-left: 20px;
+
+                            h2{
+                                margin: 20px auto 10px 0;
+                                color: $purple;
+                                text-align: left;
+                            }
+
+                            p{
+                                margin: 5px auto;
+                                text-align: left;
+
+                                i{
+                                    color: $purple;
+                                }
+                            }
+
+                        }
+                    }
+                }
 
                 .row{
                     .tags{
