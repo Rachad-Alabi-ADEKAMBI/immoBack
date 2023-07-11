@@ -127,7 +127,33 @@ class AdController extends Controller
      */
     public function adView($id)
     {
-        return view('pages/front/ad');
+        $info = Ad::find($id);
+
+        if ($info == '') { ?>
+<script>
+alert("This page doesn't exist, error 404");
+window.location.replace('/ads');
+exit();
+</script>
+
+<?php } else {$info->views = $info->views + 1;
+            $info->save();
+
+            $data = DB::table('ads')
+                ->select(
+                    'ads.*',
+                    'users.name as seller_name',
+                    'users.phone_number as users_phone'
+                )
+                ->leftJoin('users', 'ads.seller_id', '=', 'users.id')
+                ->where('ads.id', '=', $id)
+                ->first();
+
+            $datas = Ad::orderBy('id', 'desc')
+                ->limit(3)
+                ->get();
+
+            return view('/pages/front/ad', compact('data'), compact('datas'));}
     }
 
     public function newAdView()

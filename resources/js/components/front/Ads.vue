@@ -4,7 +4,7 @@
      <div class="container">
 
           <div class="row mx-auto">
-              <Tags class="col-sm-12 col-md-12 col-lg-3">
+              <Tags class="col-sm-12 col-md-3">
                 <div class="">
                      <div class="tags ">
                      <div class="tags__heading text-center">
@@ -85,9 +85,8 @@
     </div>
               </Tags>
 
-              <div class="col-sm-12 col-md-12 col-lg-9">
+              <div class="col-sm-12 col-md-9">
                   <div class="list">
-
                     <!--show filters-->
                     <div class="container mb-4">
                         <div class='buttons mx-auto text text-center ' v-if="showFilters">
@@ -622,7 +621,6 @@
                       </div>
                     <!--end show ads-->
 
-
                     <!--show filtered-->
                     <div class="container" v-if="showFiltered">
                           <div class="row">
@@ -865,13 +863,12 @@
             this.showFilters = false;
           },
           getImgUrl(pic) {
-  return "immo/public/img/ads/" + pic;
-},
-format(num){
-  let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
-  return res;
-
-}
+             return "img/ads/" + pic;
+        },
+        format(num){
+        let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
+        return res;
+        }
         }
   }
   </script>

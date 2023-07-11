@@ -1,270 +1,43 @@
-<template>
-    <div class="content">
-        <div class="" >
-            <section class='section bg-light' v-for="detail in details"
-                                            :key="detail.id">
-            <div class="container">
-                <div class="row mx-auto pt-5">
-                        <div class="col-md-3">
-                        <div class="tags ">
-                            <div class="tags__heading text-center">
-                                <p class="span">
-                                    <i class="fas fa-list"></i> Localisation
-                                </p>
-                            </div>
-
-                        <div class="iframe">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                        </div>
-
-                        <div class="tags ">
-
-            <div class="tags__body  text-center">
-                    <div class="">
-                                <div class="tag">
-
-                                </div>
-
-                        <hr>
-                        <div class="tag">
-                        <i class="fas fa-shower"></i> 1 douche
-                        </div>
-
-                        <hr>
-
-                        <div class="tag">
-                        <i class="bi bi-tv"></i> 1 salon
-                        </div>
-
-                        <hr>
-                        <div class="tag">
-                        <i class="fas fa-warehouse"></i> 1 magasin
-                        </div>
-
-                        <hr>
-                        <div class="tag">
-                        <i class="bi bi-car-front"></i> 1 garage
-                        </div>
-
-                        <hr>
-                        <div class="tag">
-                        <i class="fas fa-shower"></i> 1 douche
-                        </div>
-                    </div>
-
-            </div>
-
-            <div class="tags__btn text-center">
-            <i class="bi bi-caret-down mx-auto" onclick='showTag1()'></i>
-            </div>
-            </div> <br>
-
-                            <Tags>
-
-                            </Tags>
-                         </div>
-
-                        <div class="col-md-9">
-                                <div class="item">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="item__heading">
-                                            <h2 class='text-left'>
-                                              bhb
-                                            </h2>
-
-                                            <span class="price">
-                                             1 000 XOF
-                                            </span>
-                                        </div>
-
-                                        <div class="item__body">
-                                            <div class="item__body__img">
-                                                img
-                                            </div>
-
-                                            <div class="item__body__images">
-
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-sm-6 col-md-3">
-                                                               img
-                                                             </div>
-
-
-                                                </div>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-
-                                            <div class="item__body__text">
-                                                <h3>
-                                                    Description
-                                                </h3>
-                                                <p class="text text-grey text-left">
-                                                    <i class="bi-bookmark-fill"></i> En vente <br> <br>
-
-                                                       hjnjkn
-                                                </p>
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="item__body__more-infos">
-                                                <h3 class="" >
-                                                    Informations supplémentaires
-                                                </h3>
-
-                                                <p class="text text-grey">
-                                                 hkjnlkj
-                                                </p>
-
-                                                <div class="infos">
-                                                    <div class="info">
-                                                        <i class="fas fa-calendar"></i> hghjhkb
-                                                    </div>
-
-                                                    <div class="info">
-                                                        <i class="bi bi-eye"></i> fgvj
-                                                    </div>
-
-                                                    <div class="info">
-                                                        <i class="bi bi-share"></i> ygjhgh
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <hr>
-
-                                            <div class="agent">
-                                <div class="agent__heading">
-                                <h3>
-                                    Annonceur
-                                </h3>
-                                </div>
-                                <div class="agent__infos">
-                                   img
-                                    <div class="agent__infos__list">
-                                        <h4>
-                                           yfgjhbkh
-                                        </h4>
-
-                                        <div class="agent-contact">
-                                            <a href="" class="btn btn-primary">
-                                                Voir profil
-                                            </a>
-
-                                                <div class="share-btn whatsapp">
-                                                    <a :href="'https://wa.me/?text=Bonjour,%votre%annonce%sur%Immobilier%Bénin%...'">
-                                                    <i class="fab fa-whatsapp"></i>
-                                                     </a>
-                                                </div>
-                                                    <div class="share-btn phone" >
-                                                        <i class="bi bi-phone"></i>
-                                                    </div>
-
-                                                    <div class="share-btn mail">
-                                                    <a href="">
-                                                        <i class="fas fa-envelope"></i>
-                                                     </a>
-                                                </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <hr>
-
-
-                                            <div class="item__body__share">
-                                                <h3 class="">
-                                                    Partager cette annonce:
-                                                </h3>
-
-                                                <div class="share-btns">
-                                                    <div class="share-btn save"  >
-                                                        <i class="far fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </div>
-
-                                                    <div class="share-btn whatsapp" >
-                                                        <i class="fab fa-whatsapp"></i>
-                                                    </div>
-
-
-                                                    <div class="share-btn facebook">
-                                                        <i class="fab fa-facebook"></i>
-                                                    </div>
-
-                                                    <a  class="share-btn mail"
-                                                    href="">
-                                                    <i class="fas fa-envelope"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-
-                            <hr>
-
-
-                        </div>
-                </div>
-            </div>
-          </section>
-        </div>
-
-        <div v-if="details.length == 0">
-            <section>
-                <p class="text text-center">
-                    Veuillez vérfifier votre demande
-                </p>
-            </section>
-        </div>
-    </div>
+<template> <br><br><br><br>
+   <ul v-for="detail in details" :key="detail.id">
+    <li>{{ detail.id }}</li>
+   </ul>
   </template>
 
+
   <script>
+  import axios from 'axios';
+
   export default {
-      data() {
-          return {
-            details:[],
-            id: null
-          };
+    data() {
+      return {
+        details: [],
+        id: '',
+      };
+    },
+    created() {
+      const regex = /\/ad\/(\d+)/;
+      const match = regex.exec(window.location.href);
+      this.id = match[1];
+    },
+    mounted() {
+      this.getItem();
+    },
+    methods: {
+      getItem() {
+        axios.get('/adApi/' + this.id)
+          .then(response => {
+            this.details = response.data;
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+          });
       },
-      created() {
-        const regex = /\/ad\/(\d+)/;
-    const match = regex.exec(window.location.href);
-    this.id = match[1];
-  },
-      mounted: function(){
-            this.getItem();
-        },
-        methods:{
-        getItem() {
-            axios.get(`/adApi/${this.id}`)
-  .then(response => (this.details = response.data))
-  .catch(error => console.log(error))
-            },
-            format(num){
-    let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
-    return res;
-},
-    getImgUrl(pic) {
-    return "/img/" + pic;
-},
-shareByWhatsapp(id){
-window.location.replace('https://wa.me/?https://immobilierbenin.com/item/'+id);
-},
-callSeller(code, phone){
-    window.location.href = 'tel:' + code + phone;
-}
-        }
-  }
+      format(num) {
+        let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 3 }).format(num);
+        return res;
+      }
+    },
+  };
   </script>
