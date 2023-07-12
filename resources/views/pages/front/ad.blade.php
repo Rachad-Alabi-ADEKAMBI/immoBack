@@ -210,7 +210,13 @@
 
                                                         <div class="share-btn mail">
                                                             <a href="">
-                                                                <i class="fas fa-facebook"></i>
+                                                                <i class="bi bi-facebook"></i>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="share-btn mail">
+                                                            <a href="">
+                                                                <i class="bi bi-envelope"></i>
                                                             </a>
                                                         </div>
 

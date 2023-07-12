@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,6 +68,8 @@ Route::get('/myAdsApi', [AdController::class, 'myAdsApi']);
 Route::get('/availableAdsApi', [AdController::class, 'availableAdsApi']);
 
 Route::get('/adApi/{id}', [AdController::class, 'adApi']);
+
+Route::get('/article/{id}', [HomeController::class, 'article']);
 
 Route::get('/allAdsApi', [AdController::class, 'allAdsApi']);
 
