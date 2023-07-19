@@ -23,34 +23,49 @@
                         <div class="tags ">
 
                             <div class="tags__body  text-center">
+                                <?php if (
+                                    $data->type == 'Maison' or
+                                    $data->type == 'Appartement'
+                                ) { ?>
+                                <div class="tag">
+                                    <i class="fas fa-shower"></i> Douches:{{ $data->bathrooms }}
+                                </div>
+
+                                <hr>
+
+                                <div class="tag">
+                                    <i class="bi bi-tv"></i>salons: {{ $data->living_rooms }}
+                                </div>
+
+                                <hr>
+                                <div class="tag">
+                                    <i class="fas fa-warehouse"></i> Magasins: {{ $data->warehouses }}
+                                </div>
+
+                                <hr>
+                                <div class="tag">
+                                    <i class="bi bi-car-front"></i> Garages: {{ $data->parkings }}
+                                </div>
+
+                                <hr>
+                                <?php } elseif (
+                                    $data->type == 'Terrain' ||
+                                    $data->type == 'Magasin'
+                                ) { ?>
                                 <div class="">
-                                    <div class="tag">
-
-                                    </div>
-
                                     <hr>
                                     <div class="tag">
-                                        <i class="fas fa-shower"></i> Douches:{{ $data->bathrooms }}
+                                        <i class="bi bi-arrows-angle-expand"></i> Superficie:
+                                        {{ number_format($data->size, 0, '', ' ') }} m²
+
                                     </div>
-
-                                    <hr>
-
-                                    <div class="tag">
-                                        <i class="bi bi-tv"></i>salons: {{ $data->living_rooms }}
-                                    </div>
-
-                                    <hr>
-                                    <div class="tag">
-                                        <i class="fas fa-warehouse"></i> Magasins: {{ $data->warehouses }}
-                                    </div>
-
-                                    <hr>
-                                    <div class="tag">
-                                        <i class="bi bi-car-front"></i> Garages: {{ $data->parkings }}
-                                    </div>
-
                                     <hr>
                                 </div>
+                                <?php } else { ?>
+                                <div class="tag">
+                                    <i class="fas fa-layer-group"></i> Superficie: {{ $data->size }} m²
+                                </div>
+                                <?php } ?>
 
                             </div>
 
@@ -65,10 +80,10 @@
                     </div>
 
                     <div class="col-sm-12 col-md-9">
-                        <div class="item">
+                        <div class="ad">
                             <div class="container">
                                 <div class="row">
-                                    <div class="item__heading">
+                                    <div class="ad__heading">
                                         <h2 class='text-left'>
                                             {{ $data->name }}
                                         </h2>
@@ -78,55 +93,55 @@
                                         </span>
                                     </div>
 
-                                    <div class="item__body">
-                                        <div class="item__body__img">
+                                    <div class="ad__body">
+                                        <div class="ad__body__img">
                                             <img src="{{ asset('img/ads/'.$data->pic1) }}" alt='immobilier benin'
-                                                class="images_item mt-3">
+                                                class="images_ad mt-3">
                                         </div>
 
-                                        <div class="item__body__images">
+                                        <div class="ad__body__images">
 
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
-                                                            alt='immobilier benin' class="images_item mt-3">
+                                                            alt='immobilier benin' class="images_ad mt-3">
                                                     </div>
                                                     @else
-                                                    <img src="{{ asset('img/logo.png') }}" alt='acheter maison au benin'
-                                                        class="images_item mt-3">
+                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                        alt='acheter maison au benin' class="images_ad mt-3">
                                                     @endif
 
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
-                                                            alt='immobilier benin' class="images_item mt-3">
+                                                            alt='immobilier benin' class="images_ad mt-3">
                                                     </div>
                                                     @else
-                                                    <img src="{{ asset('img/logo.png') }}" alt='acheter maison au benin'
-                                                        class="images_item mt-3">
+                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                        alt='acheter maison au benin' class="images_ad mt-3">
                                                     @endif
 
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
-                                                            alt='immobilier benin' class="images_item mt-3">
+                                                            alt='immobilier benin' class="images_ad mt-3">
                                                     </div>
                                                     @else
-                                                    <img src="{{ asset('img/logo.png') }}" alt='acheter maison au benin'
-                                                        class="images_item mt-3">
+                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                        alt='acheter maison au benin' class="images_ad mt-3">
                                                     @endif
 
 
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
-                                                            alt='immobilier benin' class="images_item mt-3">
+                                                            alt='immobilier benin' class="images_ad mt-3">
                                                     </div>
                                                     @else
-                                                    <img src="{{ asset('img/logo.png') }}" alt='acheter maison au benin'
-                                                        class="images_item mt-3">
+                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                        alt='acheter maison au benin' class="images_ad mt-3">
                                                     @endif
 
                                                 </div>
@@ -134,7 +149,7 @@
                                         </div>
                                         <hr>
 
-                                        <div class="item__body__text">
+                                        <div class="ad__body__text">
                                             <h3>
                                                 Description
                                             </h3>
@@ -147,7 +162,7 @@
 
                                         <hr>
 
-                                        <div class="item__body__more-infos">
+                                        <div class="ad__body__more-infos">
                                             <h3 class="">
                                                 Informations supplémentaires
                                             </h3>

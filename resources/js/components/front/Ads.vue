@@ -152,37 +152,44 @@
                                           {{  format(detail.price) }} XOF
                                       </strong>
 
-                                      <div class="icons" v-if="detail.action !== 'Terrain'">
+                                      <div class="icons" v-if="detail.type === 'Maison' || detail.type === 'Appartement'">
                                           <div class="icon ">
                                               <i class="fas fa-bed"></i>
-                                              {{ detail.rooms }} chambres
+                                             Chambres: {{ detail.rooms }}
                                           </div>
 
                                           <div class="icon">
                                               <i class="fas fa-shower"></i>
-                                              {{ detail.bathrooms }} douches
+                                              Douches: {{ detail.bathrooms }}
                                           </div>
 
                                           <div class="icon">
                                               <i class="bi-egg-fried"></i>
-                                              {{ detail.kitchens }} cuisine
+                                             Cuisines: {{ detail.kitchens }}
                                           </div>
 
                                           <div class="icon">
                                               <i class="bi bi-tv"></i>
-                                              {{detail.living_rooms  }} salons
+                                             Salons: {{detail.living_rooms  }}
                                           </div>
 
                                           <div class="icon">
                                               <i class="fas fa-warehouse"></i>
-                                              {{detail.living_rooms  }} magasins
+                                              Magasins: {{detail.living_rooms  }}
                                           </div>
                                       </div>
 
-                                      <div class="icons" v-if="detail.action === 'Terrain'">
+                                      <div class="icons" v-if="detail.type === 'Terrain' || detail.type === 'Magasin'">
                                         <div class="icon">
                                             <i class="fas fa-layer-group"></i>
-                                            {{detail.size  }} m²
+                                           Superficie: {{ format(detail.size)  }} m²
+                                        </div>
+                                      </div>
+
+                                      <div class="icons" v-if="detail.type === 'Bureau'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                           Bureaux: {{ format(detail.offices)  }}
                                         </div>
                                       </div>
 

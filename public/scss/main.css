@@ -828,9 +828,6 @@ span {
 .main .content .section .container .row .item__body .share-hovers .save {
   background-color: goldenrod;
 }
-.main .content .section .container .row .item__body .share-hovers .save .fas {
-  display: none;
-}
 .main .content .section .container .row .item__body .share-hovers .whatsapp {
   background-color: #6a70a1;
 }
@@ -845,6 +842,36 @@ span {
 .main .content .section .container .row .item__body .share-hovers .whatsapp:hover,
 .main .content .section .container .row .item__body .share-hovers .mail:hover {
   filter: brightness(120%);
+}
+.main .content .section .container .row .ad__heading {
+  height: 50px;
+  background-color: #4c4d4d;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.main .content .section .container .row .ad__heading h2 {
+  color: #6a70a1;
+}
+.main .content .section .container .row .ad__heading .price {
+  float: right;
+  color: #6a70a1;
+  margin: auto 10px auto auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+.main .content .section .container .row .ad__body__img img {
+  width: 90%;
+  min-width: 300px;
+  height: auto;
+  margin: auto;
+}
+.main .content .section .container .row .ad__body__images img {
+  width: 150px;
+  height: auto;
 }
 .main .content .section .container .agent {
   margin: auto;

@@ -479,224 +479,223 @@ span{
 
                    }
 
-
-                .app{
-                    width: 100%;
-                   @include flex(column);
-                   text-align: center;
-                   margin: 20px auto 0 auto;
-
-                    &__content{
-                        @include flex(column);
-                        margin: 20px auto;
-                        width: 100%;
-
-                        h2{
-                            color: $purple;
-                        }
-                        p{
-                            margin: 20px auto 0 auto;
-                            width: 80%;
-                        }
-
-                       &__items{
-                        @include flex();
-                        margin: 20px auto;
-                        width: 100%;
-                        .item{
-                            height: auto;
-                            width: 270px;
-                            border: 2px $purple;
-                            border-radius: 15px;
-                            margin: 15px auto;
-                            box-shadow: 0px 5px 28px #00000029;
-
-
-                            .icon{
-                                text-align: center;
-                                margin: 30px auto;
-                                i{
-                                    font-size: 2em;
-                                    color: $purple;
-                                    font-weight: bold;
-
-                                }
-                            }
-
-                            h3{
-                                font-size: 1.2em;
-                            }
-
-                            p{
-                                line-height: 1.6em
-                            }
-
-                        }
-                       }
-                    }
-
-                }
-
-                .grey{
-                    &__content{
-                        @include flex();
-                        &__image{
-                            width: 350px;
-                            height: 350px;
-                            text-align: center;
-                            flex: 1;
-
-                            img{
-                                width: 100%;
-                                height: 100%;
-                                margin: 20px auto;
-                            }
-                        }
-
-                        &__text{
-                            flex: 1;
-                           width: 100%;
-                           padding-top: 5px;
-                            margin: auto 30px;
-                            text-align: center;
-
-                            h2{
-                                margin: 20px auto;
-                            }
-
-                            .text{
-                                margin: 15px auto;
-                               line-height: 1.7em;
-                               text-align: left;
-                            }
-
-                        }
-                    }
-
-                }
-
-                .faq{
-                    margin: 10px auto 0 auto;
-                    padding-bottom: 0;
-
-                    &__content{
-                        margin: 30px auto;
-                        @include flex(column);
-
-                        h2{
-
-                        }
-
-                        .accordion{
-                            .card{
-                                border-radius: 15px;
-                                width: 80%;
-                                background-color: $cyan;
-                                margin: 10px auto;
-                            }
-                        }
-                    }
-                }
-
-                .updates{
-                    height: auto;
-                    padding-bottom: 30px;
-                    display: block;
-                    margin: 0px auto;
-                    &__content{
-                        @include flex(column);
-                        p{
-                            margin: 20px auto;
-                        }
-
-                        &__articles{
-                            @include flex();
+                        .app{
                             width: 100%;
+                        @include flex(column);
+                        text-align: center;
+                        margin: 20px auto 0 auto;
 
-                            .article{
-                                width: 300px;
-                                height: auto;
-                                margin: 30px;
-                                box-shadow: 0px 5px 28px #00000029;
-                                text-align: center;
-                                padding-bottom: 20px;
-                                border-radius: 10px;
+                            &__content{
+                                @include flex(column);
+                                margin: 20px auto;
+                                width: 100%;
 
-                                img{
-                                    margin: 10px auto 0 auto;
-                                    border-radius: 10px;
-                                    width: 90%;
-                                    height: 240px;
+                                h2{
+                                    color: $purple;
+                                }
+                                p{
+                                    margin: 20px auto 0 auto;
+                                    width: 80%;
                                 }
 
-                                h3{
-                                    margin: 10px auto 0 auto;
-                                }
+                            &__items{
+                                @include flex();
+                                margin: 20px auto;
+                                width: 100%;
+                                .item{
+                                    height: auto;
+                                    width: 270px;
+                                    border: 2px $purple;
+                                    border-radius: 15px;
+                                    margin: 15px auto;
+                                    box-shadow: 0px 5px 28px #00000029;
 
-                                .date{
-                                    @include flex();
-                                    margin: 0 auto;
+
+                                    .icon{
+                                        text-align: center;
+                                        margin: 30px auto;
+                                        i{
+                                            font-size: 2em;
+                                            color: $purple;
+                                            font-weight: bold;
+
+                                        }
+                                    }
+
+                                    h3{
+                                        font-size: 1.2em;
+                                    }
 
                                     p{
-
+                                        line-height: 1.6em
                                     }
 
-                                    .time{
+                                }
+                            }
+                            }
 
+                        }
+
+                        .grey{
+                            &__content{
+                                @include flex();
+                                &__image{
+                                    width: 350px;
+                                    height: 350px;
+                                    text-align: center;
+                                    flex: 1;
+
+                                    img{
+                                        width: 100%;
+                                        height: 100%;
+                                        margin: 20px auto;
                                     }
                                 }
 
-                                p{
+                                &__text{
+                                    flex: 1;
+                                width: 100%;
+                                padding-top: 5px;
+                                    margin: auto 30px;
+                                    text-align: center;
+
+                                    h2{
+                                        margin: 20px auto;
+                                    }
+
+                                    .text{
+                                        margin: 15px auto;
+                                    line-height: 1.7em;
                                     text-align: left;
-                                    padding-left: 0;
-                                    width: 95%;
-                                }
+                                    }
 
-                                .btn{
-                                    font-size: 0.8em;
-                                }
-                            }
-
-
-                        }
-                    }
-                }
-
-                .contact{
-                    margin: 30px auto;
-
-                    &__content{
-                        @include content();
-
-                        &__form{
-                            flex: 1;
-
-                            text-align: left    ;
-                        }
-
-                        &__infos{
-                            flex: 1;
-                            text-align: left;
-                            padding-left: 20px;
-
-                            h2{
-                                margin: 20px auto 10px 0;
-                                color: $purple;
-                                text-align: left;
-                            }
-
-                            p{
-                                margin: 5px auto;
-                                text-align: left;
-
-                                i{
-                                    color: $purple;
                                 }
                             }
 
                         }
-                    }
-                }
+
+                        .faq{
+                            margin: 10px auto 0 auto;
+                            padding-bottom: 0;
+
+                            &__content{
+                                margin: 30px auto;
+                                @include flex(column);
+
+                                h2{
+
+                                }
+
+                                .accordion{
+                                    .card{
+                                        border-radius: 15px;
+                                        width: 80%;
+                                        background-color: $cyan;
+                                        margin: 10px auto;
+                                    }
+                                }
+                            }
+                        }
+
+                        .updates{
+                            height: auto;
+                            padding-bottom: 30px;
+                            display: block;
+                            margin: 0px auto;
+                            &__content{
+                                @include flex(column);
+                                p{
+                                    margin: 20px auto;
+                                }
+
+                                &__articles{
+                                    @include flex();
+                                    width: 100%;
+
+                                    .article{
+                                        width: 300px;
+                                        height: auto;
+                                        margin: 30px;
+                                        box-shadow: 0px 5px 28px #00000029;
+                                        text-align: center;
+                                        padding-bottom: 20px;
+                                        border-radius: 10px;
+
+                                        img{
+                                            margin: 10px auto 0 auto;
+                                            border-radius: 10px;
+                                            width: 90%;
+                                            height: 240px;
+                                        }
+
+                                        h3{
+                                            margin: 10px auto 0 auto;
+                                        }
+
+                                        .date{
+                                            @include flex();
+                                            margin: 0 auto;
+
+                                            p{
+
+                                            }
+
+                                            .time{
+
+                                            }
+                                        }
+
+                                        p{
+                                            text-align: left;
+                                            padding-left: 0;
+                                            width: 95%;
+                                        }
+
+                                        .btn{
+                                            font-size: 0.8em;
+                                        }
+                                    }
+
+
+                                }
+                            }
+                        }
+
+                        .contact{
+                            margin: 30px auto;
+
+                            &__content{
+                                @include content();
+
+                                &__form{
+                                    flex: 1;
+
+                                    text-align: left    ;
+                                }
+
+                                &__infos{
+                                    flex: 1;
+                                    text-align: left;
+                                    padding-left: 20px;
+
+                                    h2{
+                                        margin: 20px auto 10px 0;
+                                        color: $purple;
+                                        text-align: left;
+                                    }
+
+                                    p{
+                                        margin: 5px auto;
+                                        text-align: left;
+
+                                        i{
+                                            color: $purple;
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
 
                 .row{
                     .tags{
@@ -966,6 +965,45 @@ span{
 
                                 }
                                 }
+                }
+
+                .ad{
+                    &__heading{
+                        height: 50px;
+                        background-color: $grey;
+                        width: 100%;
+                        @include flex();
+
+                        h2{
+                            color: $blue;
+                        }
+
+                        .price{
+                            float: right;
+                            color: $blue;
+                            margin: auto 10px auto auto;
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 1.8em;
+                        }
+                    }
+                    &__body{
+                        &__img{
+                            img{
+                                width: 90%;
+                                min-width: 300px;
+                                height: auto;
+                                margin: auto;
+                            }
+                        }
+
+                        &__images{
+                           img{
+                            width: 150px;
+                            height: auto;
+                           }
+                        }
+                    }
                 }
                 }
 
