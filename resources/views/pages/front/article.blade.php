@@ -1,6 +1,6 @@
 <x-app-layout>
 
     <div class="">
-        < klnlkn />
+        <Articlee />
     </div>
 </x-app-layout>

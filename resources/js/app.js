@@ -26,6 +26,8 @@ import AdminComponent from './components/back/admin/Admin.vue';
 import AllAdsComponent from './components/back/admin/AllAds.vue';
 import UsersComponent from './components/back/admin/Users.vue';
 import MyAdsComponent from './components/back/users/MyAds.vue';
+import ArticleComponent from './components/front/Article.vue';
+
 
 app.component('login-form', ExampleComponent);
 app.component('home', HomeComponent);
@@ -38,5 +40,6 @@ app.component('admin', AdminComponent);
 app.component('all-ads', AllAdsComponent);
 app.component('users', UsersComponent);
 app.component('my-ads', MyAdsComponent);
+app.component('Articlee', ArticleComponent);
 
 app.mount('#app');

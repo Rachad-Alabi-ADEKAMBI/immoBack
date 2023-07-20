@@ -28,6 +28,6 @@ class HomeController extends Controller
 
     public function article()
     {
-        return view('article');
+        return view('pages/front/article');
     }
 }

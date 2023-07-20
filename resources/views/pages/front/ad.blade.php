@@ -245,6 +245,118 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="others">
+                            <div class="container">
+                                <div class="row">
+                                    <?php if ($datas != '') { ?>
+                                    <div class="col-12">
+                                        <h2>
+                                            Annonces similaires
+                                        </h2>
+                                    </div>
+
+                                    @foreach($datas as $data)
+                                    <div class="col-12 box card mb-4">
+                                        <div class="box__img">
+                                            <img src="{{ asset('img/ads/'.$data->pic1) }}" alt="immobilier au Benin">
+                                            <p class="text text-grey"><span>
+                                                    <i class="bi bi-tag"></i>Etat:</span>
+                                                {{ $data->action }}</p>
+                                        </div>
+
+                                        <div class="box__infos">
+                                            <h2>
+                                                {{ $data->name }}
+                                            </h2>
+
+                                            <span>
+                                                <p class="text-grey">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                    {{$data->location}}, {{ $data->area }}
+                                                </p>
+                                            </span><br>
+
+                                            <strong class="price">
+                                                {{ number_format($data->price, 0, '',' ')}} XOF
+                                            </strong>
+
+                                            <?php if (
+                                                $data->type == 'Maison' or
+                                                $data->type == 'Appartement'
+                                            ) { ?>
+                                            <div class="icons">
+                                                <div class="icon ">
+                                                    <i class="fas fa-bed"></i>
+                                                    Chambres: {{ $data->rooms }}
+                                                </div>
+
+                                                <div class="icon">
+                                                    <i class="fas fa-shower"></i>
+                                                    Douches: {{ $data->bathrooms }}
+                                                </div>
+
+                                                <div class="icon">
+                                                    <i class="bi-egg-fried"></i>
+                                                    Cuisines: {{ $data->kitchens }}
+                                                </div>
+
+                                                <div class="icon">
+                                                    <i class="bi bi-tv"></i>
+                                                    Salons: {{ $data->living_rooms }}
+                                                </div>
+
+                                                <div class="icon">
+                                                    <i class="fas fa-warehouse"></i>
+                                                    Magasins: {{ $data->warehouses }}
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            <?php if (
+                                                $data->type == 'Terrain' or
+                                                $data->type == 'Magasin'
+                                            ) { ?>
+                                            <div class="icons">
+                                                <div class="icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                    Superficie: {{ $data->size }} m²
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            <?php if (
+                                                $data->type == 'Bureau'
+                                            ) { ?>
+                                            <div class="icons">
+                                                <div class="icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                    Bureaux: {{ $data->offices }}
+                                                </div>
+                                            </div>
+                                            <?php } ?>
+
+                                            <a href="/ad/<?= $data->id ?>" class="btn btn-primary">
+                                                Voir
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+
+                                    @endforeach
+                                    <?php } ?>
+
+                                    <?php if ($datas == '') { ?>
+                                    <div class="col-12">
+                                        <p class="text text-center">
+                                            Aucune annonce à afficher
+                                        </p>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
                         <br>
 
                         <hr>

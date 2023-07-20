@@ -153,6 +153,75 @@ img{
     font-weight: bold;
 }
 
+.box{
+    @include flex();
+    margin: 20px auto ;
+    border: none;
+
+    &__img{
+        overflow: hidden;
+        img{
+            width: 275px;
+            height: 180px;
+        }
+
+        p{
+            margin: 15px auto;
+            font-style: italic;
+
+        span{
+            color: $grey;
+        }
+        }
+    }
+
+    &__infos{
+    @include flex(column);
+        flex: 1;
+        text-align: left;
+        margin-left: 10px;
+
+        h2{
+            text-align: left;
+            font-size: 1.8em;
+            color: $blue;
+        }
+
+            span{
+                color: $grey;
+                font-size: 1em;
+            font-weight: 400;
+            font-style: italic;
+            }
+
+            .price{
+                color: $blue;
+                font-style: italic;
+                font-size: 1.2em;
+            }
+        .icons{
+            width: auto;
+            @include flex();
+            justify-content: start;
+
+            .icon{
+                margin: 10px;
+                background-color: $grey-light;
+                height: 25px;
+
+                i{
+                    color: $grey-dark;
+                }
+
+            }
+        }
+
+        .btn{
+           width: 110px;
+        }
+    }
+}
+
 .table{
 	width: 100%;
 	border-collapse: collapse;
@@ -751,74 +820,7 @@ span{
                             }
                         }
 
-                        .box{
-                            @include flex();
-                            margin: 20px auto ;
-                            border: none;
 
-                            &__img{
-                                overflow: hidden;
-                                img{
-                                    width: 275px;
-                                    height: 180px;
-                                }
-
-                                p{
-                                    margin: 15px auto;
-                                    font-style: italic;
-
-                                span{
-                                    color: $grey;
-                                }
-                                }
-                            }
-
-                            &__infos{
-                            @include flex(column);
-                                flex: 1;
-                                text-align: left;
-                                margin-left: 10px;
-
-                                h2{
-                                    text-align: left;
-                                    font-size: 1.8em;
-                                    color: $blue;
-                                }
-
-                                    span{
-                                        color: $grey;
-                                        font-size: 1em;
-                                    font-weight: 400;
-                                    font-style: italic;
-                                    }
-
-                                    .price{
-                                        color: $blue;
-                                        font-style: italic;
-                                        font-size: 1.2em;
-                                    }
-                                .icons{
-                                    width: auto;
-                                    @include flex();
-                                    justify-content: start;
-
-                                    .icon{
-                                        margin: 10px;
-                                        background-color: $grey-light;
-                                        height: 25px;
-
-                                        i{
-                                            color: $grey-dark;
-                                        }
-
-                                    }
-                                }
-
-                                .btn{
-                                   width: 110px;
-                                }
-                            }
-                        }
 
                         .cards{
                             @include flex();

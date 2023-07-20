@@ -149,8 +149,10 @@ exit();
                 ->where('ads.id', '=', $id)
                 ->first();
 
-            $datas = Ad::orderBy('id', 'desc')
-                ->limit(3)
+            $category = $info->category;
+
+            $datas = Ad::where('category', $category)
+                ->take(3)
                 ->get();
 
             return view('/pages/front/ad', compact('data'), compact('datas'));}
