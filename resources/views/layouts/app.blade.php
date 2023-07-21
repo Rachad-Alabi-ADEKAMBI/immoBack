@@ -111,7 +111,7 @@
                     </ul>
                 </div>
             </div>
-        </nav> <br><br>
+        </nav>
 
         <main class="mt-4 main">
             {{ $slot}}

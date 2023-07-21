@@ -67,6 +67,11 @@ Route::get('/myAdsApi', [AdController::class, 'myAdsApi']);
 
 Route::get('/availableAdsApi', [AdController::class, 'availableAdsApi']);
 
+Route::get('/lastAvailableAdsApi', [
+    AdController::class,
+    'lastAvailableAdsApi',
+]);
+
 Route::get('/adApi/{id}', [AdController::class, 'adApi']);
 
 Route::get('/article/{id}', [HomeController::class, 'article']);

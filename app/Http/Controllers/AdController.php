@@ -184,6 +184,16 @@ exit();
         return response()->json($data);
     }
 
+    public function lastAvailableAdsApi()
+    {
+        $data = Ad::where('status', 'Disponible')
+            ->orderByDesc('id')
+            ->take(2)
+            ->get();
+
+        return response()->json($data);
+    }
+
     public function adApi($id)
     {
         $data = Ad::find($id);

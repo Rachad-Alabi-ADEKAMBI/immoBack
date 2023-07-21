@@ -22,7 +22,6 @@
                 </div>
         <section class="section">
             <div class="container">
-
                 <div class="app" >
                         <div class="app__content">
                             <h2 class="element subtitle" v-bind:class="{ 'visible animate__animated animate__fadeInUp': isElementVisible }">
@@ -102,6 +101,87 @@
                             </div>
                         </div>
                 </div>
+
+                <hr>
+                <div class="ads mt-5">
+                    <h2 class="subtitle">
+                                Dernières annonces
+                                </h2>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-8 mx-auto box card mb-4" v-for="detail in ads" :key="detail.id" v-if="details.length > 0">
+                                <div class="box__img">
+                                    <img :src='getImgUrl(detail.pic1)'>
+                                    <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                </div>
+
+                                <div class="box__infos" >
+                                    <h2>
+                                    {{ detail.name }}
+                                    </h2>
+
+                                    <span>
+                                        <p class="text-grey">
+                                            <i class="bi bi-geo-alt"></i>
+                                            {{ detail.location }}, {{ detail.area }}
+                                        </p>
+                                            </span><br>
+
+                                    <strong class="price">
+                                        {{  format(detail.price) }} XOF
+                                    </strong>
+
+                                    <div class="icons" v-if="detail.type === 'Maison' || detail.type === 'Appartement'">
+                                        <div class="icon ">
+                                            <i class="fas fa-bed"></i>
+                                            Chambres: {{ detail.rooms }}
+                                        </div>
+
+                                        <div class="icon">
+                                            <i class="fas fa-shower"></i>
+                                            Douches: {{ detail.bathrooms }}
+                                        </div>
+
+                                        <div class="icon">
+                                            <i class="bi-egg-fried"></i>
+                                            Cuisines: {{ detail.kitchens }}
+                                        </div>
+
+                                        <div class="icon">
+                                            <i class="bi bi-tv"></i>
+                                            Salons: {{detail.living_rooms  }}
+                                        </div>
+
+                                        <div class="icon">
+                                            <i class="fas fa-warehouse"></i>
+                                            Magasins: {{detail.living_rooms  }}
+                                        </div>
+                                    </div>
+
+                                    <div class="icons" v-if="detail.type === 'Terrain' || detail.type === 'Magasin'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        Superficie: {{ format(detail.size)  }} m²
+                                        </div>
+                                    </div>
+
+                                    <div class="icons" v-if="detail.type === 'Bureau'">
+                                        <div class="icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        Bureaux: {{ format(detail.offices)  }}
+                                        </div>
+                                    </div>
+
+                                        <a v-bind:href="'/ad/'+ detail.id" class="btn btn-primary">
+                                            Voir
+                                        </a>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+
 
                 <div class="faq" id='faq'>
                 <div class="faq__content">
@@ -210,8 +290,7 @@
                         </h2>
 
                         <p class="text text-grey">
-                            Souscrire à un crédit coute également de l'argent,
-                            lisez nos articles pour en savoir un peu plus
+                            lisez nos articles pour en savoir un peu plus sur l'immobilier au Bénin
                         </p>
 
                         <div class="updates__content__articles">
@@ -220,9 +299,9 @@
 
                                 <img :src="detail.image" />
 
-                                <h3>
+                                <h4>
                                     {{detail.title}}
-                                </h3>
+                                </h4>
 
                                 <p class="text text-grey">
                                 {{ detail.extract }}
@@ -314,7 +393,8 @@ export default {
             showResults: false,
             showLoader: false,
             loaderPercentage: 0,
-            message: ""
+            message: "",
+            ads: []
 
         }
     },
@@ -341,52 +421,9 @@ methods: {
         displayStep1(){
             this.showMain = true;
             this.showResults = false;
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = false;
-              this.showStep4 = true;
-              this.showStep5 = false;
-              this.showStep6 = false;
-        },
-        displayStep2(){
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = false;
-              this.showStep4 = false;
-              this.showStep5 = false;
-              this.showStep6 = false;
-        },
-        displayStep3(){
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = true;
-              this.showStep4 = false;
-              this.showStep5 = false;
-              this.showStep6 = false;
-        },
-        displayStep4(){
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = false;
-              this.showStep4 = true;
-              this.showStep5 = false;
-              this.showStep6 = false;
-        },
-        displayStep5(){
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = false;
-              this.showStep4 = false;
-              this.showStep5 = true;
-              this.showStep6 = false;
-        },
-        displayStep6(){
-              this.showStep1 = false;
-              this.showStep2 = false;
-              this.showStep3 = false;
-              this.showStep4 = false;
-              this.showStep5 = false;
-              this.showStep6 = true;
+              axios.get('/lastAvailableAdsApi').then(
+              response =>
+              this.ads = response.data);
         },
         proceed() {
   this.showMain = false;
@@ -411,6 +448,9 @@ startLoader() {
     }
   }, 500);
 },
+getImgUrl(pic) {
+             return "img/ads/" + pic;
+        },
 format(num) {
             let res = new Intl.NumberFormat('fr-FR', {
                 maximumSignificantDigits: 3
