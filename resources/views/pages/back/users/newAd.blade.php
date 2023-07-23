@@ -5,7 +5,7 @@
             <div class="top">
                 <i class="fas fa-xmark" onclick="closeSuccessMsg()"></i>
             </div>
-            <p class="text text-center">    
+            <p class="text text-center">
                 {{ session('success') }}
             </p>
         </div>

@@ -13,11 +13,9 @@ h1 {
   display: inline;
   position: relative;
 }
-
 h1 span {
   font-size: 0.7em;
   top: 11px;
-  position: absolute;
 }
 
 h2, h3 {
@@ -251,11 +249,35 @@ img {
 .dashboard__menu .menu__items .activee {
   background-color: #6a70a1;
 }
-.dashboard__menu .mobile-menu {
+.dashboard__menu .menu__items .activee:hover {
+  background-color: white;
+  color: #6a70a1;
+}
+.dashboard__menu .menu__mobile {
   display: none;
+}
+.dashboard__menu .menu__mobile__show, .dashboard__menu .menu__mobile__close {
+  text-align: center;
+}
+.dashboard__menu .menu__mobile__show i, .dashboard__menu .menu__mobile__close i {
+  color: white;
+  font-weight: bold;
+}
+.dashboard__menu .menu__mobile__show i:hover, .dashboard__menu .menu__mobile__close i:hover {
+  color: #6a70a1;
 }
 .dashboard__content {
   display: block;
+}
+.dashboard__content h1 {
+  font-size: 2em;
+}
+.dashboard__content .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
 }
 .dashboard__content .buttons .btn {
   margin: 5px;
@@ -311,11 +333,6 @@ img {
   width: 90px;
   height: 50px;
   margin: auto;
-}
-
-.show,
-.close {
-  display: none;
 }
 
 .btn-primary {
@@ -401,6 +418,29 @@ span {
   height: 400px;
   margin: auto;
   width: 80%;
+}
+
+h1 span {
+  font-size: 0.7em;
+  margin-right: 10px;
+}
+h1 strong {
+  font-size: 0.7em;
+}
+
+h3 {
+  text-align: left;
+  color: #6a70a1;
+}
+
+h4 {
+  color: #6a70a1;
+  text-align: left;
+}
+
+h1.title {
+  color: #6a70a1;
+  margin: auto auto 8px auto;
 }
 
 .subtitle {
@@ -536,9 +576,15 @@ span {
 }
 .main .content .section .container .app__content__items .item h3 {
   font-size: 1.2em;
+  width: 90%;
+  margin: auto;
 }
 .main .content .section .container .app__content__items .item p {
   line-height: 1.6em;
+}
+.main .content .section .container .app__content__items .item .text {
+  width: 90%;
+  margin: auto;
 }
 .main .content .section .container .grey__content {
   display: flex;
@@ -695,6 +741,12 @@ span {
   vertical-align: middle;
   text-align: center;
 }
+.main .content .section .container .row .tags__body .tag {
+  margin: 15px auto;
+}
+.main .content .section .container .row .tags__btn {
+  display: none;
+}
 .main .content .section .container .row .tags .iframe {
   width: 200px;
   height: 200px;
@@ -714,9 +766,9 @@ span {
   height: 50px;
 }
 .main .content .section .container .row .list__heading .span {
-  margin: auto;
+  margin: 5px auto;
   color: #6F6F6F;
-  font-size: 1.3em;
+  font-size: 1.7em;
   font-weight: 800;
 }
 .main .content .section .container .row .list .cards {
@@ -951,12 +1003,6 @@ span {
 
 /*responsive for 768px*/
 @media screen and (min-width: 350px) and (max-width: 1024px) {
-  .menu {
-    display: none;
-  }
-  .mobile-menu {
-    display: block;
-  }
   .main .content .hero {
     height: 60vh;
     padding-top: 60px;
@@ -967,6 +1013,7 @@ span {
   }
   .main .content .section .container .row .list .box {
     flex-direction: column;
+    margin: 5px auto;
   }
   .main .content .section .container .grey {
     text-align: center;
@@ -989,6 +1036,32 @@ span {
   .main .content .section .container .grey__content__text .text {
     width: 90%;
     margin: auto;
+  }
+  .dashboard__menu .menu {
+    height: auto;
+    min-height: auto;
+  }
+  .dashboard__menu .menu__items {
+    display: none;
+  }
+  .dashboard__menu .menu__mobile {
+    display: block;
+  }
+  .dashboard__menu .menu__mobile__show {
+    display: block;
+  }
+  .dashboard__menu .menu__mobile__close {
+    display: none;
+  }
+  .dashboard__content {
+    margin-top: 15px;
+  }
+  .dashboard__content .buttons {
+    width: 95%;
+    margin: auto;
+  }
+  .dashboard__content h1 {
+    font-size: 1.7em;
   }
 }
 /*responsive for 767px*/ /*

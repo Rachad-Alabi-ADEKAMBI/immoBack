@@ -7,7 +7,7 @@
                     @include('pages/back/menu')
                 </div>
                 <div class="col-sm-12 col-md-9 dashboard__content">
-                    <my-ads />
+                    <my-ads :img_url="'{{ env('IMG_URL') }}'" />
                 </div>
             </div>
         </div>

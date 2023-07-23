@@ -65,15 +65,15 @@
 
                                 <div class="item box" v-bind:class="{ '': isItemVisible }">
                                     <div class="icon">
-                                        <i class="fas fa-question"></i>
+                                       <i class="fas fa-question"></i>
                                     </div>
 
                                     <h3>
-                                        Une question ?
+                                        Posez nous vos questions
                                     </h3>
 
                                     <p class="text">
-                                        Toutes vos questions et préoccupations sont les bienvenues, notre objectif est de vous aider.
+                                        Toutes vos questions et préoccupations sont les bienvenues,
                                     </p>
                                 </div>
                             </div>
@@ -116,9 +116,9 @@
                                 </div>
 
                                 <div class="box__infos" >
-                                    <h2>
+                                    <h3>
                                     {{ detail.name }}
-                                    </h2>
+                                    </h3>
 
                                     <span>
                                         <p class="text-grey">
@@ -181,6 +181,25 @@
 
                 </div>
                 <hr>
+
+                <div class="images">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 p-2">
+                            <img src="img/bureau2.jpg"
+                             alt="louer appartement au Bénin" class="img-fluid">
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 p-2">
+                            <img src="img/bureau2.jpg"
+                             alt="louer appartement au Bénin" class="img-fluid">
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 p-2">
+                            <img src="img/bureau2.jpg"
+                             alt="louer appartement au Bénin" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="faq" id='faq'>
@@ -373,16 +392,22 @@
 
 <script>
 export default {
+
+ name: 'Ads',
+ props: {
+   img_url: String
+ },
     data(){
         return{
             details:[
-                {id:1, title: 'Conseils pratiques pour acheter votre première maison au Bénin', image: 'https://images.unsplash.com/photo-1549918004-678df400b5fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', extract: "L'achat d'une première maison est une étape majeure dans la vie de nombreux Béninois. Pour garantir que cette expérience soit  ... "},
+                {id:1, title: 'Conseils pratiques pour acheter votre première maison au Bénin',
+                image: 'https://images.unsplash.com/photo-1549918004-678df400b5fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', extract: "L'achat d'une première maison est une étape majeure dans la vie de nombreux Béninois. Pour garantir que cette expérience soit  ... "},
                 {id:2, title: "Investir dans l'immobilier locatif au Bénin : avantages et considérations",
                 image: 'https://plus.unsplash.com/premium_photo-1680792417458-86f150769d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                extract: "Investir dans l'immobilier locatif est une stratégie d'investissement populaire qui offre de nombreux avantages au Bénin. Dans cet article, nous examinerons les avantages de"},
+                extract: "Investir dans l'immobilier locatif est une stratégie d'investissement populaire qui offre de nombreux avantages au Bénin. Dans cet article, nous examinerons les avantages de ..."},
                 {id:3, title: `Les documents nécessaires pour finaliser l'achat d'une maison`,
                  image: 'https://images.unsplash.com/photo-1583521214690-73421a1829a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                 extract: `Finaliser l'achat d'une maison implique la préparation et la présentation de divers documents techniques. Ces documents sont essentiels pour garantir la validité et la ...`}
+                 extract: `Finaliser l'achat d'une maison implique la préparation et la présentation de divers documents techniques. Ces documents sont essentiels pour garantir ...`}
             ],
             isElementVisible: false,
             isItemVisible: false,
@@ -449,8 +474,8 @@ startLoader() {
   }, 500);
 },
 getImgUrl(pic) {
-             return "img/ads/" + pic;
-        },
+  return this.img_url + "/img/ads/" + pic;
+    },
 format(num) {
             let res = new Intl.NumberFormat('fr-FR', {
                 maximumSignificantDigits: 3
@@ -465,3 +490,7 @@ viewArticle(id){
   }
 }
 </script>
+
+
+<style>
+</style>

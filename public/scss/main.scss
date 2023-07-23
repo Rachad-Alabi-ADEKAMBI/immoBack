@@ -64,14 +64,14 @@ html, body{
     margin: 5px;
 }
 
-h1{
+
+h1 {
     display: inline;
     position: relative;
-}
-h1 span{
-    font-size: 0.7em;
-    top: 11px;
-    position: absolute;
+    span{
+        font-size: 0.7em;
+        top: 11px;
+    }
 }
 
 h2, h3{
@@ -320,18 +320,48 @@ img{
                     background-color: $primary;
                 }
 
+                .activee:hover{
+                    background-color: $white;
+                    color: $primary;
+                }
+
+            }
+
+            &__mobile{
+                display: none;
+
+                &__show,
+                &__close{
+                    text-align: center;
+
+                    i{
+                        color: $white;
+                        font-weight: bold;
+                    }
+
+                    i:hover{
+                        color: $primary;
+                    }
+                }
+
+                &__list{
+                }
+
             }
 
         }
 
-        .mobile-menu{
-            display: none;
-        }
     }
 
     &__content{
         display: block;
+
+        h1{
+            font-size: 2em;
+        }
         .buttons{
+            @include flex();
+            width: 80%;
             .btn{
                 margin: 5px;
             }
@@ -374,10 +404,6 @@ img{
     margin: auto;
 }
 
-.show,
-.close{
-    display: none;
-}
 
 .action{}
 
@@ -460,6 +486,32 @@ span{
     width: 80%;
 }
 
+
+h1{
+     span{
+        font-size: 0.7em;
+        margin-right: 10px;
+     }
+
+     strong{
+        font-size: 0.7em;
+     }
+}
+
+
+h3{
+    text-align: left;
+    color: $primary;
+}
+h4{
+    color: $primary;
+    text-align: left;
+}
+
+h1.title{
+    color: $primary;
+    margin: auto auto 8px auto;
+}
 .subtitle{
     color: $primary;
 }
@@ -598,10 +650,17 @@ span{
 
                                     h3{
                                         font-size: 1.2em;
+                                        width: 90%;
+                                        margin: auto;
                                     }
 
                                     p{
                                         line-height: 1.6em
+                                    }
+
+                                    .text{
+                                        width: 90%;
+                                        margin: auto;
                                     }
 
                                 }
@@ -777,7 +836,6 @@ span{
                         border: 1px $border solid;
                         margin-bottom: 15px;
 
-
                         &__heading{
                             background-color: $grey-light;
                             width: 100%;
@@ -793,6 +851,16 @@ span{
                                 vertical-align: middle;
                                 text-align: center;
                             }
+                        }
+
+                        &__body{
+                            .tag{
+                                margin: 15px auto;
+                            }
+                        }
+
+                        &__btn{
+                            display: none;
                         }
 
                         .iframe{
@@ -817,15 +885,14 @@ span{
                             height: 50px;
 
                             .span{
-                                margin: auto;
+                                margin: 5px auto;
                                 color: $grey-dark;
-                                font-size: 1.3em;
+                                font-size: 1.7em;
                                 font-weight: 800;
+
 
                             }
                         }
-
-
 
                         .cards{
                             @include flex();
@@ -847,7 +914,6 @@ span{
                         h2{
                             color: $blue;
                         }
-
 
 
                         .price{
@@ -1115,21 +1181,13 @@ span{
 
 /*responsive for 768px*/
 @media screen and (min-width: 350px) and (max-width: 1024px) {
-    .menu{
-        display: none;
-    }
-
-    .mobile-menu{
-        display: block;
-    }
-
-
     .main{
         .content{
             .hero{
                 height: 60vh;
                 padding-top: 60px;
                }
+
             .section{
                 .container{
                     .contact{
@@ -1147,6 +1205,7 @@ span{
                         .list{
                             .box{
                                 flex-direction: column;
+                                margin: 5px auto;
                             }
                         }
                     }
@@ -1177,6 +1236,50 @@ span{
                         }
                     }
                 }
+            }
+        }
+    }
+
+    .dashboard{
+        &__menu{
+            .menu{
+                height: auto;
+                min-height: auto;
+
+                &__items{
+                    display: none;
+                }
+
+                &__mobile{
+                    display: block;
+
+                    &__show{
+                        display: block;
+                    }
+
+                    &__close{
+                        display: none;
+                    }
+
+                    &__list{
+
+                    }
+
+
+                }
+            }
+        }
+
+        &__content{
+            margin-top: 15px;
+
+            .buttons{
+               width: 95%;
+               margin: auto;
+            }
+
+            h1{
+                font-size: 1.7em;
             }
         }
     }

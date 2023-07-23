@@ -15,7 +15,9 @@
         <div class="row">
             <div class="col-sm-9">
                         <h1 class="text-blue text-left title">
-                            Mes annonces <span @click="displaySearch()" v-if="showSearchBtn && ads.length >0">
+                            Mes annonces
+                            <strong  v-if="showSearchBtn && ads.length >0"> ({{ ads.length }}) </strong>
+                            <span @click="displaySearch()" v-if="showSearchBtn && ads.length >0">
                           <i class="bi bi-search"></i> </span>
                         </h1>
                 </div>
@@ -45,7 +47,7 @@
                                     {{ ad.name }}
                             </td>
 
-                            <td data-label='Id' scope="row">
+                            <td data-label='Image' scope="row">
                                 <img :src='getImgUrl(ad.pic1)'   alt="" class="table-img">
                             </td>
                             <td data-label='Action'>
@@ -82,6 +84,7 @@
             <div class="col-sm-9">
                         <h1 class="text-blue text-left">
                             Resultats de la recherche
+                            <span  v-if="filteredItems.length >0"> ({{ filteredItems.length }}) </span>
                         </h1>
 
 
@@ -151,6 +154,11 @@ import axios from "axios";
 
 export default {
 
+ name: 'MyAds',
+ props: {
+   img_url: String
+ },
+
 data(){
 return{
     ads: [],
@@ -200,7 +208,7 @@ editAd(id){
     window.location.replace('editAdView/' +id);
 },
 getImgUrl(img){
-    return ('img/ads/'+img);
+    return this.img_url + "/img/ads/" + img;
 },
 format(num){
             let res = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(num);

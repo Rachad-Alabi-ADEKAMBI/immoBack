@@ -13,9 +13,9 @@
                     </p>
 
                     <?php if (auth()->user()->role === 'user') { ?>
-                    <user />
+                    <user :img_url="'{{ env('IMG_URL') }}'" />
                     <?php } elseif (auth()->user()->role === 'admin') { ?>
-                    <admin />
+                    <admin :img_url="'{{ env('IMG_URL') }}'" />
                     <?php } ?>
                 </div>
             </div>

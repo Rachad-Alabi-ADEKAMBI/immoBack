@@ -2,6 +2,20 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MYCH37VKNQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MYCH37VKNQ');
+    </script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,7 +56,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar nav navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar nav navbar-expand-md navbar-light
+         bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/logo-transparent.png') }}" alt="">
@@ -91,15 +106,16 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('profile.show') }}"
+                                role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Déconnexion') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -120,7 +136,7 @@
         <footer class="footer mt-5">
             <div class=" container ">
                 <div class="row pt-3 text-left text-white fw-bold">
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-6">
                         <img src="/img/logo-transparent.png" alt=""> <br>
 
                         <p>
@@ -129,30 +145,39 @@
                         </p>
                     </div>
 
-                    <div class="col-sm-12 col-md-4">
+                    <div class="col-sm-12 col-md-3">
                         <h4>CATEGORIES</h4>
 
                         <p>
-                            <a href="/appartments" class="">
+                            <a href="/ads" class="">
                                 <i class="bi bi-building"></i> Appartements
                             </a>
                             <br>
-                            <a href="/houses" class="">
-                                <i class="bi bi-house"></i> Maisons
-                            </a> <br>
-                            <a href="/lands" class="">
-                                <i class="bi bi-signpost"></i> Terrains
-                            </a> <br>
 
                             <a href="/ads" class="">
-                                <i class="fas fa-arrow-right"></i> Tout voir
+                                <i class="fas fa-store"></i> Boutiques
+                            </a> <br>
+
+
+                            <a href="/ads" class="">
+                                <i class="fas fa-building"></i> Bureaux
                             </a>
+                            <br>
+
+
+                            <a href="/ads" class="">
+                                <i class="fas fa-house"></i> Maisons
+                            </a> <br>
+
+
+                            <a href="/ads" class="">
+                                <i class="bi bi-signpost"></i> Terrains
+                            </a> <br>
 
                         </p>
                     </div>
 
-                    <div class="col-sm-12 col-md-4 ml-0">
-                        <p>
+                    <div class="col-sm-12 col-md-3 ml-0">
                         <h4 class=" ml-0 text-left">LIENS </h4>
 
 
@@ -183,9 +208,7 @@
                     <div class="col-6">
                         <a href="#app">
                             <div class="up">
-
                                 <i class="fas fa-caret-up"></i>
-
                             </div>
                         </a>
                     </div>
@@ -204,6 +227,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

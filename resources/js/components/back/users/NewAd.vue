@@ -36,22 +36,26 @@
                             </h1>
                             <div class="buttons text-left">
 
-                <button class='btn btn-primary' @click='displayAddForm("Appartement")'>
-                    Appartement
-                </button>
+                                <button class='btn btn-primary' @click='displayAddForm("Appartement")'>
+                                    Appartement
+                                </button>
 
-                <button class='btn btn-primary'  @click="displayAddForm('Bureau')">
-                    Bureau
-                </button>
+                                <button class='btn btn-primary'  @click="displayAddForm('Boutique')">
+                                    Boutique
+                                </button>
 
-                <button class='btn btn-primary'  @click="displayAddForm('Maison')">
-                    Maison
-                </button>
+                                <button class='btn btn-primary'  @click="displayAddForm('Bureau')">
+                                    Bureau
+                                </button>
 
-                <button class='btn btn-primary'  @click="displayAddForm('Terrain')">
-                    Terrain
-                </button>
-            </div>
+                                <button class='btn btn-primary'  @click="displayAddForm('Maison')">
+                                    Maison
+                                </button>
+
+                                <button class='btn btn-primary'  @click="displayAddForm('Terrain')">
+                                    Terrain
+                                </button>
+                          </div>
                 </div>
         </div>
 
@@ -59,7 +63,7 @@
             <div class="col-sm-12 col-md-10 left bg-light">
                 <form action="newAd" method="POST" enctype="multipart/form-data" class="mx-auto">
                     <div class="text-left" @click='displayOptions()'>
-                    <i class="bi bi-x" ></i>back
+                    <i class="bi bi-x" ></i>
                       </div>  <br>
                     <h3 class=" text-blue text-center">
                         Nouvelle annonce catégorie {{ category }}

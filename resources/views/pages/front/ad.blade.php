@@ -150,9 +150,9 @@
                                         <hr>
 
                                         <div class="ad__body__text">
-                                            <h3>
+                                            <h4>
                                                 Description
-                                            </h3>
+                                            </h4>
                                             <p class="text text-grey text-left">
                                                 <i class="bi-bookmark-fill"></i> En vente <br> <br>
 
@@ -163,9 +163,9 @@
                                         <hr>
 
                                         <div class="ad__body__more-infos">
-                                            <h3 class="">
+                                            <h4 class="">
                                                 Informations supplémentaires
-                                            </h3>
+                                            </h4>
 
                                             <div class="infos">
                                                 <div class="info">
@@ -183,34 +183,24 @@
 
                                         <div class="agent">
                                             <div class="agent__heading">
-                                                <h3>
+                                                <h4>
                                                     Annonceur
-                                                </h3>
+                                                </h4>
                                             </div>
                                             <div class="agent__infos">
                                                 <div class="agent__infos__list">
-                                                    <h4>
-                                                        {{ $data->seller_name}}
-                                                    </h4>
-
-                                                    <div class="agent-contact">
-
-
-                                                        <div class="share-btn phone">
-                                                            <i class="bi bi-phone"></i>
-                                                        </div>
-
-                                                        {{  $data->users_phone }}
-
-                                                    </div>
+                                                    <p>
+                                                        <i class="bi bi-person-circle"></i> {{ $data->seller_name}} <br>
+                                                        <i class="bi bi-phone"></i> {{  $data->users_phone }}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div> <br>
                                         <div class="agent">
                                             <div class="agent__heading">
-                                                <h3>
+                                                <h4>
                                                     Partager cette annonce
-                                                </h3>
+                                                </h4>
                                             </div>
                                             <div class="agent__infos">
                                                 <div class="agent__infos__list">
