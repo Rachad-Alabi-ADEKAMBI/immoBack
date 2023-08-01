@@ -12,7 +12,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="close text-left">
-                                    <i class="bi bi-x"></i>back
+                                    <i class="bi bi-x"></i>
                                 </div> <br>
                                 <h3 class="text-blue text-left">
                                     Editer {{ $data->name }}'
@@ -64,11 +64,11 @@
                                             id="inputPassword4" placeholder="">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Description: </label>
-                                    <textarea class="form-control" name="area" id="exampleFormControlTextarea1" rows="3"
-                                        name='description' value='{{ $data->description }}'> </textarea>
-                                </div>
+
+                                <?php if (
+                                    $data->type === 'Maison' ||
+                                    $data->type === 'Appartement'
+                                ) { ?>
                                 <div class="form-row mx-auto">
                                     <div class="form-group col-md-4">
                                         <label for="inputEmail4">Chambres: </label>
@@ -94,6 +94,41 @@
                                             onkeyup="if(this.value<0){this.value= this.value * -1}">
                                     </div>
                                 </div>
+
+                                <?php } ?>
+
+                                <?php if ($data->type === 'Bureau') { ?>
+                                <div class="form-row mx-auto">
+                                    <div class="form-group col-sm-12 col-md-4">
+                                        <label for="inputEmail4">Nombre de bureaux: </label>
+                                        <input type="number" class="form-control" id="inputEmail4"
+                                            placeholder="Nbre de bureaux" name='rooms' name="offices"
+                                            onkeyup="if(this.value<0){this.value= this.value * -1}"
+                                            value='{{ $data->rooms }}'>
+                                    </div>
+                                </div>
+
+                                <?php } ?>
+
+                                <?php if ($data->type === 'Terrain') { ?>
+                                <div class="form-row mx-auto">
+                                    <div class="form-group col-sm-12 col-md-4">
+                                        <label for="inputEmail4">Superficie en m²: </label>
+                                        <input type="number" class="form-control" id="inputEmail4" name='size'
+                                            onkeyup="if(this.value<0){this.value= this.value * -1}"
+                                            value='{{ $data->size }}'>
+                                    </div>
+                                </div>
+
+                                <?php } ?>
+
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Description: </label>
+                                    <textarea class="form-control" name="area" id="exampleFormControlTextarea1" rows="3"
+                                        name='description' value='{{ $data->description }}'> </textarea>
+                                </div>
+
 
                                 <div class="form-row mx-auto">
                                     <div class="form-group col-sm-4 col-md-4">

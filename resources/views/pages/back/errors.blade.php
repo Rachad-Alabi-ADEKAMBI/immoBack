@@ -3,7 +3,7 @@
         @if(session('error'))
         <div class="alert alert-error errorMsg">
             <div class="top">
-                <i class="fas fa-xmark right" onclick="closeerrorMsg()">close</i>
+                <i class="fas fa-xmark right" onclick="closeerrorMsg()"></i>
             </div>
             <p class="text text-center">
                 {{ session('error') }}

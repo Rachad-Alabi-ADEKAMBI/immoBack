@@ -60,7 +60,7 @@
          bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo-transparent.png') }}" alt="">
+                    <img src="{{ asset('img/logo-transparent.png') }}" alt="immobilier benin">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -78,6 +78,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/ads">{{ __('Annonces') }}</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">{{ __('A-propos') }}</a>
+                        </li>
+
+
                         @auth
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">{{ __('Tableau de bord') }}</a>
@@ -141,7 +147,9 @@
 
                         <p>
                             <i class="fas fa-envelope"></i>
-                            contact@immobilierbenin.com
+                            contact@immobilierbenin.com <br>
+                            <i class="fab fa-whatsapp"></i>
+                            +229 41 59 76 42
                         </p>
                     </div>
 

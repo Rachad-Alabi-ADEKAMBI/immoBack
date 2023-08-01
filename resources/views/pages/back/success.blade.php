@@ -3,7 +3,7 @@
         @if(session('success'))
         <div class="alert alert-success successMsg">
             <div class="top">
-                <i class="fas fa-xmark right" onclick="closeSuccessMsg()">close</i>
+                <i class="fas fa-xmark right" onclick="closeSuccessMsg()"></i>
             </div>
             <p class="text text-center">
                 {{ session('success') }}

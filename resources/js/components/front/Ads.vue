@@ -123,10 +123,10 @@
                               </div>
 
                               <div class="list__body mt-1">
-                                <div class="col-12 box card mt-3 mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
+                                <div class="col-sm-12 col-md-10 box card mt-3 mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -166,10 +166,6 @@
                                              Salons: {{detail.living_rooms  }}
                                           </div>
 
-                                          <div class="icon">
-                                              <i class="fas fa-warehouse"></i>
-                                              Magasins: {{detail.living_rooms  }}
-                                          </div>
                                       </div>
 
                                       <div class="icons" v-if="detail.type === 'Terrain' || detail.type === 'Magasin'">
@@ -218,7 +214,7 @@
                               <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -300,7 +296,7 @@
                               <div class="col-12 box card mb-4" v-for="detail in details" :key="detail.id" v-if="details.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -384,7 +380,7 @@
                               v-if="searchItems.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -466,7 +462,7 @@
                               <div class="col-12 box" v-for="detail in itemsByCategory" :key="detail.id" v-if="itemsByCategory.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -551,7 +547,7 @@
                               <div class="col-12 box" v-for="detail in itemsByLocation" :key="detail.id" v-if="itemsByLocation.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >
@@ -636,7 +632,7 @@
                               <div class="col-12 box" v-for="detail in filteredItems" :key="detail.id" v-if="filteredItems.length > 0">
                                   <div class="box__img">
                                       <img :src='getImgUrl(detail.pic1)'>
-                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                      <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                   </div>
 
                                   <div class="box__infos" >

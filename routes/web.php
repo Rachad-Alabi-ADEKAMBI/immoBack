@@ -38,7 +38,7 @@ Route::get('/terms', function () {
 });
 
 Route::get('/policy', function () {
-    return view('/policy');
+    return view('pages/front/policy');
 });
 
 Route::get('/allAds', [AdController::class, 'allAds']);

@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+            <div class="col-md-8 pt-4 ">
+                <div class="card mt-4">
+                    <div class="card-header">{{ __('Inscription') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">

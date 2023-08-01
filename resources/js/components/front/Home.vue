@@ -24,12 +24,12 @@
             <div class="container">
                 <div class="app" >
                         <div class="app__content">
-                            <h2 class="element subtitle" v-bind:class="{ 'visible animate__animated animate__fadeInUp': isElementVisible }">
+                            <h2 class="element subtitle" v-bind:class=" { 'visible animate__animated animate__fadeInUp': isElementVisible }">
                             Annonces gratuites
                             </h2>
 
 
-                            <p class="text" v-bind:class="{ 'visible animate__animated animate__fadeInUp': isElementVisible }">
+                            <p class="text" v-bind:class="{ 'visible animate__animated animate__fadeInUp': isElementVisible } ">
                             Postez gratuitement vos annonces immobilières sur notre site
                             </p>
 
@@ -40,7 +40,7 @@
 
                                     </div>
 
-                                    <h3>
+                                    <h3 class="text text-center">
                                         Economisez votre argent
                                     </h3>
 
@@ -54,7 +54,7 @@
                                         <i class="fas fa-thumbs-up"></i>
                                     </div>
 
-                                    <h3>
+                                    <h3 class="text text-center">
                                         Choisissez le meilleur partenaire
                                     </h3>
 
@@ -68,7 +68,7 @@
                                        <i class="fas fa-question"></i>
                                     </div>
 
-                                    <h3>
+                                    <h3 class="text text-center">
                                         Posez nous vos questions
                                     </h3>
 
@@ -109,10 +109,11 @@
                                 </h2>
 
                     <div class="row">
-                        <div class="col-sm-12 col-md-8 mx-auto box card mb-4" v-for="detail in ads" :key="detail.id" v-if="details.length > 0">
-                                <div class="box__img">
+                        <div class="col-sm-12 col-md-10 mx-auto box card mb-4 bg-light p-2" v-for="detail in ads"
+                         :key="detail.id" v-if="details.length > 0">
+                                <div class="box__img mt-2">
                                     <img :src='getImgUrl(detail.pic1)'>
-                                    <p class="text text-grey"><span><i class="bi bi-tag"></i>Etat:</span> {{ detail.action }}</p>
+                                    <p class="text text-grey"><span><i class="bi bi-tag"></i>Action:</span> {{ detail.action }}</p>
                                 </div>
 
                                 <div class="box__infos" >
@@ -203,103 +204,104 @@
 
 
                 <div class="faq" id='faq'>
-                <div class="faq__content">
-                    <h2 class="subtitle">
-                        FAQ
-                    </h2>
+                    <div class="faq__content">
+                        <h2 class="subtitle">
+                            FAQ
+                        </h2>
 
-                    <div class="faq__content__drops">
-                        <div class="accordion" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">Comment puis-je publier une annonce immobilière sur votre site ?
-                                        <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseOne"
-                                            aria-expanded="false" aria-controls="collapseOne">
-                                            V
-                                        </b>
-                                    </h5>
-                                </div>
+                        <div class="faq__content__drops">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">Comment puis-je publier une annonce immobilière sur votre site ?
+                                            <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseOne"
+                                                aria-expanded="false" aria-controls="collapseOne">
+                                                V
+                                            </b>
+                                        </h5>
+                                    </div>
 
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p class="text text-grey">
-                                            Pour publier une annonce immobilière, vous devez créer un compte sur notre site,
-                                        puis accéder à la section "Publier une annonce"
-                                        où vous pourrez saisir les détails de votre bien immobilier, ajouter des photos et publier votre annonce.
-                                        </p>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text text-grey">
+                                                Pour publier une annonce immobilière, vous devez créer un compte sur notre site,
+                                            puis accéder à la section "Publier une annonce"
+                                            où vous pourrez saisir les détails de votre bien immobilier, ajouter des photos et publier votre annonce.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        Est-ce que la publication d'une annonce est payante ?
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            Est-ce que la publication d'une annonce est payante ?
 
-                                        <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            V
-                                        </b>
-                                    </h5>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p class="text text-grey">
-                                            Non, notre site propose un service d'annonces immobilières gratuites.
-                                             Vous pouvez publier votre annonce et la mettre à jour sans aucun frais.
-                                        </p>
+                                            <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                V
+                                            </b>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text text-grey">
+                                                Non, notre site propose un service d'annonces immobilières gratuites.
+                                                Vous pouvez publier votre annonce et la mettre à jour sans aucun frais.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        Comment puis-je contacter un vendeur ?
-                                        <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseTwo">
-                                            V
-                                        </b>
-                                    </h5>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p class="text text-grey">
-                                            Sur chaque annonce, vous trouverez les informations de contact du vendeur. Vous pouvez utiliser le
-                                             formulaire de contact ou les coordonnées fournies
-                                            pour entrer en communication directe avec le vendeur et discuter des détails de l'annonce.
-                                        </p>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            Comment puis-je contacter un vendeur ?
+                                            <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                V
+                                            </b>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text text-grey">
+                                                Sur chaque annonce, vous trouverez les informations de contact du vendeur. Vous pouvez utiliser le
+                                                formulaire de contact ou les coordonnées fournies
+                                                pour entrer en communication directe avec le vendeur et discuter des détails de l'annonce.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingFour">
-                                    <h5 class="mb-0">
-                                        Comment puis-je signaler une annonce suspecte ou frauduleuse ?
 
-                                        <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseFour"
-                                            aria-expanded="false" aria-controls="collapseFour">
-                                            V
-                                        </b>
-                                    </h5>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="collapseFour"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <p class="text text-grey">
-                                            Si vous trouvez une annonce suspecte ou frauduleuse, nous vous encourageons à utiliser le lien
-                                             "Signaler cette annonce" qui se trouve sur chaque annonce.
-                                             Nous examinerons rapidement votre signalement et prendrons les mesures nécessaires.
-                                        </p>
+                                <div class="card">
+                                    <div class="card-header" id="headingFour">
+                                        <h5 class="mb-0">
+                                            Comment puis-je signaler une annonce suspecte ou frauduleuse ?
+
+                                            <b class="btn btn-hidden" data-toggle="collapse" data-target="#collapseFour"
+                                                aria-expanded="false" aria-controls="collapseFour">
+                                                V
+                                            </b>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="collapseFour"
+                                        data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p class="text text-grey">
+                                                Si vous trouvez une annonce suspecte ou frauduleuse, nous vous encourageons à utiliser le lien
+                                                "Signaler cette annonce" qui se trouve sur chaque annonce.
+                                                Nous examinerons rapidement votre signalement et prendrons les mesures nécessaires.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="updates" id='blog'>
@@ -318,13 +320,12 @@
 
                                 <img :src="detail.image" />
 
-                                <h4>
+                                <h4 class="text text-center mt-2">
                                     {{detail.title}}
                                 </h4>
 
-                                <p class="text text-grey">
+                                <p class="text text-left">
                                 {{ detail.extract }}
-
                                 </p>
 
                                 <button class="btn btn-primary" @click="viewArticle(detail.id)">
@@ -335,7 +336,7 @@
                     </div>
                 </div>
 
-                <div class="contact" id="contactt">
+                <div class="contact" id="contact">
                     <div class="contact__content row">
                         <div class="contact__content__form col-sm-12 col-md-6">
                             <form class="form" method='POST' action=''>
@@ -352,14 +353,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Message: </label>
+                                    <label for="exampleFormControlTextarea1">Message: </label> <span class="red">*</span>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3 "></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">
                                         <input type="checkbox" > Oui, j'accepte que vous gardiez ces informations pour me
-                                        recontacter
+                                        recontacter <span class="red">*</span>
                                     </label>
                                 </div>
 
@@ -374,12 +375,14 @@
 
                             <p class="text text-purple fw-bold">
                                 <i class="fas fa-envelope"></i>
-                                contact@immobilierbenin.com
+                                contact@immobilierbenin.com <br>
+                                <i class="fab fa-whatsapp"></i>
+                            +229 41 59 76 42
                             </p><br>
 
                             <p class="text text-grey">
                                 Si vous avez une question ou une préoccupation,
-                                n'hésitez pas, écrivez nous, nous vous répondrons
+                                n'hésitez pas, écrivez nous, nous vous répondrons.
                             </p>
                         </div>
                     </div>
@@ -404,10 +407,10 @@ export default {
                 image: 'https://images.unsplash.com/photo-1549918004-678df400b5fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80', extract: "L'achat d'une première maison est une étape majeure dans la vie de nombreux Béninois. Pour garantir que cette expérience soit  ... "},
                 {id:2, title: "Investir dans l'immobilier locatif au Bénin : avantages et considérations",
                 image: 'https://plus.unsplash.com/premium_photo-1680792417458-86f150769d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                extract: "Investir dans l'immobilier locatif est une stratégie d'investissement populaire qui offre de nombreux avantages au Bénin. Dans cet article, nous examinerons les avantages de ..."},
+                extract: "Investir dans l'immobilier locatif est une stratégie d'investissement populaire qui offre de nombreux avantages ..."},
                 {id:3, title: `Les documents nécessaires pour finaliser l'achat d'une maison`,
                  image: 'https://images.unsplash.com/photo-1583521214690-73421a1829a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                 extract: `Finaliser l'achat d'une maison implique la préparation et la présentation de divers documents techniques. Ces documents sont essentiels pour garantir ...`}
+                 extract: `Finaliser l'achat d'une maison implique la préparation et la présentation de divers documents techniques...`}
             ],
             isElementVisible: false,
             isItemVisible: false,

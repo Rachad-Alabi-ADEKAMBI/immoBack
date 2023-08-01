@@ -109,6 +109,7 @@ img {
 .box__img img {
   width: 275px;
   height: 180px;
+  margin: 15px auto;
 }
 .box__img p {
   margin: 15px auto;
@@ -151,7 +152,7 @@ img {
   justify-content: start;
 }
 .box__infos .icons .icon {
-  margin: 10px;
+  margin: 5px;
   background-color: #F6F6F6;
   height: 25px;
 }
@@ -618,6 +619,10 @@ h1.title {
   line-height: 1.7em;
   text-align: left;
 }
+.main .content .section .container .about__image img {
+  width: 90%;
+  height: auto;
+}
 .main .content .section .container .faq {
   margin: 10px auto 0 auto;
   padding-bottom: 0;
@@ -659,8 +664,9 @@ h1.title {
 }
 .main .content .section .container .updates__content__articles .article {
   width: 300px;
+  min-width: 330px;
   height: auto;
-  margin: 30px;
+  margin: 10px auto;
   box-shadow: 0px 5px 28px rgba(0, 0, 0, 0.1607843137);
   text-align: center;
   padding-bottom: 20px;
@@ -757,9 +763,6 @@ h1.title {
   width: 195px;
   height: 195px;
   margin: auto;
-}
-.main .content .section .container .row .list {
-  background-color: white;
 }
 .main .content .section .container .row .list__heading {
   background-color: #F6F6F6;
@@ -898,13 +901,16 @@ h1.title {
   filter: brightness(120%);
 }
 .main .content .section .container .row .ad__heading {
-  height: 50px;
-  background-color: #4c4d4d;
+  height: auto;
+  background-color: rgb(170, 163, 216);
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 2px;
+  padding-bottom: 5px;
+  border-radius: 4px;
 }
 .main .content .section .container .row .ad__heading h2 {
   color: #6a70a1;
@@ -1004,7 +1010,7 @@ h1.title {
 /*responsive for 768px*/
 @media screen and (min-width: 350px) and (max-width: 1024px) {
   .main .content .hero {
-    height: 60vh;
+    height: 90vh;
     padding-top: 60px;
   }
   .main .content .section .container .contact__item .contact-box img {
@@ -1014,6 +1020,10 @@ h1.title {
   .main .content .section .container .row .list .box {
     flex-direction: column;
     margin: 5px auto;
+    padding-top: 5px;
+  }
+  .main .content .section .container .row .list .box__img img {
+    margin: 10px auto;
   }
   .main .content .section .container .grey {
     text-align: center;
@@ -1036,6 +1046,12 @@ h1.title {
   .main .content .section .container .grey__content__text .text {
     width: 90%;
     margin: auto;
+  }
+  .main .content .section .container .ad__heading h2 {
+    font-size: 1.7em;
+  }
+  .main .content .section .container .ad__heading .price {
+    font-size: 1.6em;
   }
   .dashboard__menu .menu {
     height: auto;

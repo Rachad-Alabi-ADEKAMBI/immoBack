@@ -32,12 +32,11 @@ class AdController extends Controller
         $ad->living_rooms = $request->input('living_rooms');
         $ad->warehouses = $request->input('warehouses');
         $ad->location = $request->input('location');
-
+        $ad->type = $request->input('type');
         $ad->area = $request->input('area');
         $ad->size = $request->input('size');
         $ad->offices = $request->input('offices');
         $ad->action = $request->input('action');
-        $ad->category = $request->input('category');
         $ad->seller_id = auth()->id();
 
         $ad->status = 'Disponible';

@@ -48,10 +48,7 @@
                                 </div>
 
                                 <hr>
-                                <?php } elseif (
-                                    $data->type == 'Terrain' ||
-                                    $data->type == 'Magasin'
-                                ) { ?>
+                                <?php } elseif ($data->type == 'Terrain') { ?>
                                 <div class="">
                                     <hr>
                                     <div class="tag">
@@ -61,9 +58,9 @@
                                     </div>
                                     <hr>
                                 </div>
-                                <?php } else { ?>
+                                <?php } elseif ($data->type == 'Bureau') { ?>
                                 <div class="tag">
-                                    <i class="fas fa-layer-group"></i> Superficie: {{ $data->size }} m²
+                                    <i class="fas fa-layer-group"></i> Bureaux: {{ $data->offices }}
                                 </div>
                                 <?php } ?>
 
@@ -94,9 +91,9 @@
                                     </div>
 
                                     <div class="ad__body">
-                                        <div class="ad__body__img">
+                                        <div class="ad__body__img text-center">
                                             <img src="{{ asset('img/ads/'.$data->pic1) }}" alt='immobilier benin'
-                                                class="images_ad mt-3">
+                                                class="images_ad mt-3 mx-auto ">
                                         </div>
 
                                         <div class="ad__body__images">
@@ -107,43 +104,44 @@
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
                                                             alt='immobilier benin' class="images_ad mt-3">
+                                                        @else
+                                                        <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                            alt='acheter maison au benin' class="images_ad mt-3">
+                                                        @endif
                                                     </div>
-                                                    @else
-                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
-                                                        alt='acheter maison au benin' class="images_ad mt-3">
-                                                    @endif
 
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
                                                             alt='immobilier benin' class="images_ad mt-3">
+                                                        @else
+                                                        <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                            alt='acheter maison au benin' class="images_ad mt-3">
+                                                        @endif
                                                     </div>
-                                                    @else
-                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
-                                                        alt='acheter maison au benin' class="images_ad mt-3">
-                                                    @endif
-
-                                                    <div class="col-sm-6 col-md-3">
-                                                        @if(!empty($data->pic3))
-                                                        <img src="{{ asset('img/ads/'.$data->pic2) }}"
-                                                            alt='immobilier benin' class="images_ad mt-3">
-                                                    </div>
-                                                    @else
-                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
-                                                        alt='acheter maison au benin' class="images_ad mt-3">
-                                                    @endif
 
 
                                                     <div class="col-sm-6 col-md-3">
                                                         @if(!empty($data->pic3))
                                                         <img src="{{ asset('img/ads/'.$data->pic2) }}"
                                                             alt='immobilier benin' class="images_ad mt-3">
+                                                        @else
+                                                        <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                            alt='acheter maison au benin' class="images_ad mt-3">
+                                                        @endif
                                                     </div>
-                                                    @else
-                                                    <img src="{{ asset('img/ads/logo.jpg') }}"
-                                                        alt='acheter maison au benin' class="images_ad mt-3">
-                                                    @endif
 
+
+
+                                                    <div class="col-sm-6 col-md-3">
+                                                        @if(!empty($data->pic3))
+                                                        <img src="{{ asset('img/ads/'.$data->pic2) }}"
+                                                            alt='immobilier benin' class="images_ad mt-3">
+                                                        @else
+                                                        <img src="{{ asset('img/ads/logo.jpg') }}"
+                                                            alt='acheter maison au benin' class="images_ad mt-3">
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +206,7 @@
 
                                                         <div class="share-btn whatsapp">
                                                             <a
-                                                                :href="'https://wa.me/?text=Bonjour,%votre%annonce%sur%Immobilier%Bénin%...'">
+                                                                :href="'https://wa.me/?text=Bonjour,%cette%annonce%sur%Immobilier%Bénin%...'">
                                                                 <i class="fab fa-whatsapp"></i>
                                                             </a>
                                                         </div>
@@ -242,7 +240,7 @@
                                     <?php if ($datas != '') { ?>
                                     <div class="col-12">
                                         <h2>
-                                            Annonces similaires
+                                            Autres annonces
                                         </h2>
                                     </div>
 
