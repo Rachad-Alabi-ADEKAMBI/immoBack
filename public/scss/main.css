@@ -462,7 +462,7 @@ h1.title {
   margin: 0 auto;
   z-index: -9999;
   display: block;
-  background-image: linear-gradient(rgba(177, 108, 223, 0.548), rgba(15, 35, 153, 0.589)), url("/img/bureau2.jpg");
+  background-image: linear-gradient(rgba(177, 108, 223, 0.548), rgba(15, 35, 153, 0.589)), url("/img/home2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

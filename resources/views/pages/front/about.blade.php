@@ -5,117 +5,91 @@
             <div class="container mt-5">
                 <div class="row about ">
                     <div class="col-sm-12 col-md-6  about__image animate__animated animate__fadeInLeft">
-                        <img src="img/bureau2.jpg" alt="louer appartement au Bénin"
-                            alt="marketplace for free ads in Ghana" class="mt-5">
+                        <img src="img/home1.jpeg" alt="louer appartement au Bénin"
+                            alt="appartement à louer, Cotonou, Bénin" class="mt-5">
                     </div>
 
                     <div class="col-sm-12 col-md-6 about__text
                              animate__animated animate__fadeInRight pt-3">
-                        <h1 class="subtitle text-center">
-                            ABOUT-US
-                        </h1>
+                        <h2 class="subtitle text-center">
+                            QUI SOMMES NOUS ?
+                        </h2>
 
                         <div class="line mt-2">
 
                         </div>
 
                         <p class="text text-justify mt-2">
-                            Rapidnote is a top-tier crypto currency website that offers a convenient and secure platform
-                            for
-                            users to buy and sell digital assets, including Bitcoin and Perfect Money. With its
-                            intuitive
-                            interface and advanced trading tools, Rapidnote makes it easy for both novice and
-                            experienced
-                            traders to enter and exit the crypto market with confidence. <br>
-
-                            One of the standout features of Rapidnote is its ability to process transactions in Ghana
-                            Cedi, the
-                            official currency of Ghana. This means that users can easily exchange their crypto assets
-                            for fiat
-                            currency and withdraw funds to their local bank accounts in Ghana.
+                            <a href="/">Immobilier Benin</a> est une plateforme dédiée aux annonces de vente et de
+                            location de biens
+                            immobiliers au Bénin. Notre mission est de faciliter la mise en relation entre les
+                            propriétaires,
+                            les agents immobiliers et les chercheurs de biens immobiliers. Notre équipe passionnée
+                            travaille
+                            constamment pour offrir une expérience utilisateur optimale,
+                            avec des fonctionnalités conviviales et une navigation fluide.
                         </p>
 
                     </div>
                 </div>
 
                 <div class="row about mt-5">
-                    <div class="col-sm-12 col-md-6 about__text
+                    <div class="col-sm-12 col-md-6 about__text text-center
                                 animate__animated animate__fadeInLeft pt-5">
-                        <h1 class="subtitle text-center MT-3">
-                            POST A FREE AD
-                        </h1>
+                        <h2 class="subtitle text-center MT-3">
+                            POSTEZ UNE ANNONCE GRATUITE
+                        </h2>
 
                         <div class="line mt-2">
 
                         </div>
 
                         <p class="text text-justify mt-2">
-                            In addition to trading cryptocurrencies, Rapidnote also offers a free marketplace for
-                            ads in
-                            Ghana.
-                            Whether you want to promote your products, services, or business, our platform provides
-                            you
-                            with the
-                            opportunity to reach a local audience at no cost. Take advantage of our free ad
-                            marketplace
-                            to
-                            expand your reach and grow your
-                            business presence in Ghana. <br>
-
-                            At Rapidnote, we believe in providing a user-friendly experience, and our website is
-                            designed with
-                            simplicity and ease of use in mind.
-                            in Ghana.
+                            Vous êtes propriétaire d'un bien immobilier au Bénin que vous souhaitez vendre ou louer ?
+                            Profitez de notre service d'annonce gratuite pour promouvoir votre bien auprès d'un large
+                            public. Il vous suffit de créer un compte, de décrire votre bien avec des détails
+                            pertinents, d'ajouter des photos attractives, et votre annonce sera diffusée pour que les
+                            chercheurs potentiels puissent la consulter.
                         </p> <br>
 
 
                         <a href="/newAd" class="btn btn-primary">
-                            Post ad
+                            Nouvelle annonce
                         </a>
                     </div>
 
                     <div class="col-sm-12 col-md-6 about__image
                                    animate__animated animate__fadeInRight">
-                        <img src="img/bureau2.jpg" alt="marketplace for free ads in Ghana" class="mt-5">
+                        <img src="img/bureaux3.jpeg" alt="louer appartement à Cotonou, Bénin" class="mt-5">
                     </div>
                 </div>
 
                 <div class="row about mt-5">
                     <div class="col-sm-12 col-md-6 about__image  animate__animated animate__fadeInLeft">
-                        <img src="img/bureau2.jpg" alt="marketplace for free ads in Ghana" class="mt-5">
+                        <img src="img/bureaux1.jpeg" alt="louer appartement à Cotonou, Bénin" class="mt-5">
                     </div>
 
-                    <div class="col-sm-12 col-md-6 about__text
+                    <div class="col-sm-12 col-md-6 about__text text-center
                            animate__animated animate__fadeInRight pt-3">
-                        <h1 class="subtitle text-center">
-                            OUR MARKETPLACE
-                        </h1>
+                        <h2 class="subtitle text-center">
+                            MARKETPLACE
+                        </h2>
 
                         <div class="line mt-2">
 
                         </div>
 
                         <p class="text text-justify mt-2">
-                            Rapidnote is a top-tier crypto currency website that offers a convenient and secure
-                            platform
-                            for
-                            users to buy and sell digital assets, including Bitcoin and Perfect Money. With its
-                            intuitive
-                            interface and advanced trading tools, Rapidnote makes it easy for both novice and
-                            experienced
-                            traders to enter and exit the crypto market with confidence. <br>
-
-                            One of the standout features of Rapidnote is its ability to process transactions in
-                            Ghana
-                            Cedi, the
-                            official currency of Ghana. This means that users can easily exchange their crypto
-                            assets
-                            for fiat
-                            currency and withdraw funds to their local bank accounts in Ghana. <br>
+                            Que vous recherchiez une maison, un appartement, un terrain ou tout autre type de bien
+                            immobilier au Bénin, notre plateforme vous offre un vaste choix d'annonces actualisées
+                            régulièrement. Utilisez nos filtres de recherche pour affiner vos critères et trouvez
+                            rapidement le bien qui correspond à vos besoins et à votre budget. Naviguez parmi les
+                            annonces et contactez directement les propriétaires ou les agents pour obtenir plus
+                            d'informations.
                         </p> <br>
 
-                        <a href="/ads" class="btn btn-primary">
-                            Marketplace
+                        <a href="/ads" class="btn btn-primary mx-auto">
+                            Explorez les les annonces
                         </a>
 
                     </div>

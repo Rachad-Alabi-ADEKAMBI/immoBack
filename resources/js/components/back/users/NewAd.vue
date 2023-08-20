@@ -66,17 +66,18 @@
                     <i class="bi bi-x" ></i>
                       </div>  <br>
                     <h3 class=" text-blue text-center">
-                        Nouvelle annonce catégorie {{ type }}
+                        Nouvelle annonce catégorie {{ category }}
                     </h3>
                     <hr>
-
-                    <input type="hidden" name="type" v-model="type">
                     <div class="form-row mx-auto">
                         <div class="form-group col-md-8">
                             <label for="inputEmail4">Nom: <span class="required">*</span></label>
 
                             <input type="text" class="form-control" name='name' id="inputEmail4" placeholder=""
                              v-model='name'>
+
+                             <input type="hidden" class="form-control" name='type' id="inputEmail4" placeholder=""
+                             v-model='type'>
                         </div>
 
                         <div class="form-group col-md-4">
@@ -98,7 +99,7 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="inputPassword4">Ville: <span class="required">*</span></label>
+                            <label for="inputPassword4">Localisation: <span class="required">*</span></label>
                             <select type="text" class="form-control" name='location' id="inputPassword4" placeholder=""
                              v-model="location" required>
                                 <option value="">Veuillez selectionner</option>
@@ -117,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row mx-auto"  v-if="this.type === 'Maison' || this.type === 'Appartement'">
+                    <div class="form-row mx-auto" v-if="">
                         <div class="form-group col-md-4">
                             <label for="inputEmail4">Chambres: <span class="required">*</span></label>
                             <input type="number" class="form-control" id="inputEmail4" placeholder="Nbre de chambres à coucher"
@@ -125,51 +126,43 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Salons: <span class="required">*</span></label>
+                            <label for="inbputEmail4">Salons: <span class="required">*</span></label>
                             <input type="number" class="form-control" id="inputEmail4" placeholder="Nbre de salons"
                                 name='living_rooms' v-model="living_rooms"  required onkeyup="if(this.value<0){this.value= this.value * -1}">
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Salles de bain: <span class="required">*</span></label>
+                            <label for="inputEmail4">Salles de bains: <span class="required">*</span></label>
                             <input type="number" class="form-control" id="inputEmail4" placeholder="Nbre de salles de bains"
                                 name='bathrooms'  v-model="bathrooms" required onkeyup="if(this.value<0){this.value= this.value * -1}">
                         </div>
                     </div>
 
-                    <div class="form-row mx-auto"  v-if="this.type === 'Bureau'">
-                        <div class="form-group col-md-4">
-                            <label for="inputEmail4">Bureaux: <span class="required">*</span></label>
-                            <input type="number" class="form-control" id="inputEmail4" placeholder="Nbre de bureaux"
-                                name='offices' v-model="offices"  required onkeyup="if(this.value<0){this.value= this.value * -1}">
-                        </div>
-                    </div>
-
-                    <div class="form-row mx-auto"  v-if="this.type === 'Terrain'">
-                        <div class="form-group col-md-4">
-                            <label for="inputEmail4">Superficie en m² <span class="required">*</span></label>
-                            <input type="number" class="form-control" id="inputEmail4"
-                                name='size' v-model="size"  required onkeyup="if(this.value<0){this.value= this.value * -1}">
-                        </div>
-                    </div>
-
-                    <div class="form-row mx-auto" v-if="this.type === 'Maison' || this.type === 'Appartement'">
+                    <div class="form-row mx-auto">
                         <div class="form-group col-md-4">
                             <label for="inputEmail4">Cuisines: <span class="required">*</span></label>
                             <input type="number" class="form-control" id="inputEmail4" placeholder="Nbre de cuisines"
                                 name='kitchens' v-model="kitchens"  required onkeyup="if(this.value<0){this.value= this.value * -1}">
                         </div>
 
-
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Garage: <span class="required">*</span></label>
-                            <select type="text" class="form-control" name='parkings' id="inputPassword4" placeholder=""
-                             v-model="location" required>
-                                <option value="">Veuillez selectionner</option>
+                            <label for="inputEmail4">Garage: <span class="required">*</span></label>
+                            <select name="parkings" id="" v-model="parkings">
+                                <option value="">Veuillez sélectionner</option>
                                 <option value="Oui">Oui</option>
                                 <option value="Non">Non</option>
+                           </select>
 
-                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4">Magasin: <span class="required">*</span></label>
+                            <select name="parkings" id="" v-model="warehouses">
+                                <option value="">Veuillez sélectionner</option>
+                                <option value="Oui">Oui</option>
+                                <option value="Non">Non</option>
+                           </select>
+
                         </div>
                     </div>
                     <div class="form-group">
@@ -251,7 +244,7 @@ export default {
             bathrooms: '2',
             kitchens: '2',
             description: 'ffwa',
-            type: 'Appartement',
+            category: 'Appartement',
             action: 'A louer',
             warehouses: 'Oui',
             parkings: 'Non',
@@ -275,8 +268,8 @@ export default {
             this.showOptions = true;
             this.showAddForm = false;
         },
-        displayAddForm(item){
-            this.type = item;
+        displayAddForm(category){
+            this.type = category;
             this.showOptions = false;
             this.showAddForm = true;
         },
@@ -286,7 +279,6 @@ export default {
         closeErrorMsg(){
             this.showErrorMsg = false;
         },
-
         proceed() {
   const formData = new FormData();
   formData.append('name', this.name);
@@ -331,14 +323,14 @@ export default {
 
         handleImageUpload(event) {
           const file = event.target.files[0];
-          const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+          const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
 
           if (file && allowedTypes.includes(file.type)) {
             this.image = file;
           } else {
             this.image = null;
             // Display an error message for invalid file type
-            alert('Invalid file type. Only JPEG, PNG, and GIF images are allowed.');
+            alert('Invalid file type. Only JPEG, PNG, JPG and GIF images are allowed.');
           }
         },
 

@@ -73,7 +73,7 @@
                                     </h3>
 
                                     <p class="text">
-                                        Toutes vos questions et préoccupations sont les bienvenues,
+                                        Toutes vos questions et préoccupations sont les bienvenues.
                                     </p>
                                 </div>
                             </div>
@@ -83,7 +83,8 @@
                 <div class="grey" id='about'>
                         <div class="grey__content">
                             <div class="grey__content__image about" v-bind:class="{ 'animate__animated animate__fadeInLeft': isAboutVisible }">
-                                <img src="https://images.unsplash.com/photo-1586941962765-d3896cc85ac8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="location immobiliere benin">
+                                <img src="img/home1.jpeg" alt="location immobiliere benin">
+
                             </div>
 
                             <div class="grey__content__text about " v-bind:class="{ 'animate__animated animate__fadeInRight': isAboutVisible }">
@@ -92,7 +93,10 @@
                                 </h2>
 
                                 <p class="text">
-                                    Bienvenue sur immobilierbenin, votre site d'annonces de vente et de location de biens immobiliers au Bénin. Nous offrons un service gratuit d'annonces de vente et de location de biens immobiliers pour tous les utilisateurs. Vous pouvez publier vos annonces en quelques clics seulement et les mettre à jour à tout moment ...
+                                    Bienvenue sur immobilierbenin, votre site d'annonces de vente et de location de biens
+                                     immobiliers au Bénin. Nous offrons un service gratuit d'annonces de vente et de location
+                                     de biens immobiliers pour tous les utilisateurs. Vous pouvez publier vos annonces en quelques
+                                      clics seulement et les mettre à jour à tout moment ...
                                 </p>
 
                                 <a href="/about" class="btn btn-primary mx-auto">
@@ -186,17 +190,17 @@
                 <div class="images">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 p-2">
-                            <img src="img/bureau2.jpg"
+                            <img src="img/home7.jpeg"
                              alt="louer appartement au Bénin" class="img-fluid">
                         </div>
 
                         <div class="col-sm-12 col-md-4 p-2">
-                            <img src="img/bureau2.jpg"
+                            <img src="img/home4.jpeg"
                              alt="louer appartement au Bénin" class="img-fluid">
                         </div>
 
                         <div class="col-sm-12 col-md-4 p-2">
-                            <img src="img/bureau2.jpg"
+                            <img src="img/home6.jpg"
                              alt="louer appartement au Bénin" class="img-fluid">
                         </div>
                     </div>
